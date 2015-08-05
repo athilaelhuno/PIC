@@ -9,6 +9,7 @@ import muleconsultarordenivr.AP719ConsultarOrdenIVRProxy;
 import muleconsultarordenivr.ConsultarOrdenIVRRQ;
 import obtenerMovimientosCent.*;
 
+import org.apache.log4j.Logger;
 import org.asteriskjava.fastagi.*;
 
 import response.Serviciof2v5_NAP_Asc_obtenerSaldoCuenta.jul2003.ibse.iwaysoftware.F2V5_NAP_Asc_obtenerSaldoCuenta_RP;
@@ -54,7 +55,7 @@ import canonicoconsultarordenivr.ConsultarOrdenIVRRP;
 import cantv.arquitectura.asc.contratos.exceptions.*;
 
 public class ConsultNumber extends BaseAgiScript {
-
+	static Logger log = Logger.getLogger("picLogger");
 	private int servicio = 0;
 
 	private boolean CONTINUAR = false;
@@ -335,7 +336,7 @@ public class ConsultNumber extends BaseAgiScript {
 			servicio = Integer.parseInt(request.getParameter("SERVICIO"));
 			CONTINUAR = true;
 		}else{
-			System.out.println("NO EXISTE UN SERVICIO ASIGNADO");
+			log.info("NO EXISTE UN SERVICIO ASIGNADO");
 			throw new AgiException("NO EXISTE UN SERVICIO ASIGNADO");
 		}
 		
@@ -352,8 +353,8 @@ public class ConsultNumber extends BaseAgiScript {
 			case 2: // Consulta Obtener Tipo Tarifa
 				obtenerTipoTarifa(request.getParameter("COD"), request.getParameter("NUMDES"));
 				
-				System.out.println("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
-				System.out.println("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
+				log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
+				log.info("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
 				
 				
 				setVariable("CODIGO_DE_AREA", CODIGO_DE_AREA);
@@ -362,15 +363,15 @@ public class ConsultNumber extends BaseAgiScript {
 				setVariable("SOCIAL", SOCIAL);
 				setVariable("TELEFONO", TELEFONO);
 				
-				System.out.println("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
-				System.out.println("CODIGO_RETORNO: "+CODIGO_RETORNO);
-				System.out.println("INDICADOR_SERVICIO: "+INDICADOR_SERVICIO);
-				System.out.println("SOCIAL: "+SOCIAL);
-				System.out.println("TELEFONO: "+TELEFONO);
+				log.info("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
+				log.info("CODIGO_RETORNO: "+CODIGO_RETORNO);
+				log.info("INDICADOR_SERVICIO: "+INDICADOR_SERVICIO);
+				log.info("SOCIAL: "+SOCIAL);
+				log.info("TELEFONO: "+TELEFONO);
 				break;
 			case 3:// Obtener Movimientos
-				System.out.println("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
-				System.out.println("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
+				log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
+				log.info("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
 				
 				obtenerMovimientos(request.getParameter("COD"), request.getParameter("NUMDES"));
 
@@ -460,111 +461,111 @@ public class ConsultNumber extends BaseAgiScript {
 				
 				
 				
-				System.out.println("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
-				System.out.println("TELEFONO: "+TELEFONO);
-				System.out.println("INDICADOR_TELEFONO_ACTIVO: "+INDICADOR_TELEFONO_ACTIVO);
-				System.out.println("FECHA_DE_LA_DEUDA_1: "+FECHA_DE_LA_DEUDA_1);
-				System.out.println("DIA_FECHA_DE_LA_DEUDA_1: "+DIA_FECHA_DE_LA_DEUDA_1);
-				System.out.println("MES_FECHA_DE_LA_DEUDA_1: "+MES_FECHA_DE_LA_DEUDA_1);
-				System.out.println("ANIO_FECHA_DE_LA_DEUDA_1: "+ANIO_FECHA_DE_LA_DEUDA_1);
-				System.out.println("MONTO_DE_LA_DEUDA_1: "+MONTO_DE_LA_DEUDA_1);
-				System.out.println("FECHA_DE_LA_DEUDA_2: "+FECHA_DE_LA_DEUDA_2);
-				System.out.println("DIA_FECHA_DE_LA_DEUDA_2: "+DIA_FECHA_DE_LA_DEUDA_2);
-				System.out.println("MES_FECHA_DE_LA_DEUDA_2: "+MES_FECHA_DE_LA_DEUDA_2);
-				System.out.println("ANIO_FECHA_DE_LA_DEUDA_2: "+ANIO_FECHA_DE_LA_DEUDA_2);
-				System.out.println("MONTO_DE_LA_DEUDA_2: "+MONTO_DE_LA_DEUDA_2);
-				System.out.println("FECHA_DE_LA_DEUDA_3: "+FECHA_DE_LA_DEUDA_3);
-				System.out.println("DIA_FECHA_DE_LA_DEUDA_3: "+DIA_FECHA_DE_LA_DEUDA_3);
-				System.out.println("MES_FECHA_DE_LA_DEUDA_3: "+MES_FECHA_DE_LA_DEUDA_3);
-				System.out.println("ANIO_FECHA_DE_LA_DEUDA_3: "+ANIO_FECHA_DE_LA_DEUDA_3);
-				System.out.println("MONTO_DE_LA_DEUDA_3: "+MONTO_DE_LA_DEUDA_3);
-				System.out.println("FECHA_DE_LA_DEUDA_4: "+FECHA_DE_LA_DEUDA_4);
-				System.out.println("DIA_FECHA_DE_LA_DEUDA_4: "+DIA_FECHA_DE_LA_DEUDA_4);
-				System.out.println("MES_FECHA_DE_LA_DEUDA_4: "+MES_FECHA_DE_LA_DEUDA_4);
-				System.out.println("ANIO_FECHA_DE_LA_DEUDA_4: "+ANIO_FECHA_DE_LA_DEUDA_4);
-				System.out.println("MONTO_DE_LA_DEUDA_4: "+MONTO_DE_LA_DEUDA_4);
-				System.out.println("FECHA_DE_LA_DEUDA_5: "+FECHA_DE_LA_DEUDA_5);
-				System.out.println("DIA_FECHA_DE_LA_DEUDA_5: "+DIA_FECHA_DE_LA_DEUDA_5);
-				System.out.println("MES_FECHA_DE_LA_DEUDA_5: "+MES_FECHA_DE_LA_DEUDA_5);
-				System.out.println("ANIO_FECHA_DE_LA_DEUDA_5: "+ANIO_FECHA_DE_LA_DEUDA_5);
-				System.out.println("MONTO_DE_LA_DEUDA_5: "+MONTO_DE_LA_DEUDA_5);
-				System.out.println("FECHA_DE_LA_DEUDA_6: "+FECHA_DE_LA_DEUDA_6);
-				System.out.println("DIA_FECHA_DE_LA_DEUDA_6: "+DIA_FECHA_DE_LA_DEUDA_6);
-				System.out.println("MES_FECHA_DE_LA_DEUDA_6: "+MES_FECHA_DE_LA_DEUDA_6);
-				System.out.println("ANIO_FECHA_DE_LA_DEUDA_6: "+ANIO_FECHA_DE_LA_DEUDA_6);
-				System.out.println("MONTO_DE_LA_DEUDA_6: "+MONTO_DE_LA_DEUDA_6);
-				System.out.println("MONTO_TOTAL_PENDIENTE: "+MONTO_TOTAL_PENDIENTE);
-				System.out.println("NOMBRE_DEL_CLIENTE: "+NOMBRE_DEL_CLIENTE);
-				System.out.println("TIPO_CLIENTE: "+TIPO_CLIENTE);
-				System.out.println("TIPO_SERVICIO: "+TIPO_SERVICIO);
-				System.out.println("FECHA_VENCIMIENTO_DE_FACTURA: "+FECHA_VENCIMIENTO_DE_FACTURA);
-				System.out.println("DIA_FECHA_VENCIMIENTO_DE_FACTURA: "+DIA_FECHA_VENCIMIENTO_DE_FACTURA);
-				System.out.println("MES_FECHA_VENCIMIENTO_DE_FACTURA: "+MES_FECHA_VENCIMIENTO_DE_FACTURA);
-				System.out.println("ANIO_FECHA_VENCIMIENTO_DE_FACTURA: "+ANIO_FECHA_VENCIMIENTO_DE_FACTURA);
+				log.info("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
+				log.info("TELEFONO: "+TELEFONO);
+				log.info("INDICADOR_TELEFONO_ACTIVO: "+INDICADOR_TELEFONO_ACTIVO);
+				log.info("FECHA_DE_LA_DEUDA_1: "+FECHA_DE_LA_DEUDA_1);
+				log.info("DIA_FECHA_DE_LA_DEUDA_1: "+DIA_FECHA_DE_LA_DEUDA_1);
+				log.info("MES_FECHA_DE_LA_DEUDA_1: "+MES_FECHA_DE_LA_DEUDA_1);
+				log.info("ANIO_FECHA_DE_LA_DEUDA_1: "+ANIO_FECHA_DE_LA_DEUDA_1);
+				log.info("MONTO_DE_LA_DEUDA_1: "+MONTO_DE_LA_DEUDA_1);
+				log.info("FECHA_DE_LA_DEUDA_2: "+FECHA_DE_LA_DEUDA_2);
+				log.info("DIA_FECHA_DE_LA_DEUDA_2: "+DIA_FECHA_DE_LA_DEUDA_2);
+				log.info("MES_FECHA_DE_LA_DEUDA_2: "+MES_FECHA_DE_LA_DEUDA_2);
+				log.info("ANIO_FECHA_DE_LA_DEUDA_2: "+ANIO_FECHA_DE_LA_DEUDA_2);
+				log.info("MONTO_DE_LA_DEUDA_2: "+MONTO_DE_LA_DEUDA_2);
+				log.info("FECHA_DE_LA_DEUDA_3: "+FECHA_DE_LA_DEUDA_3);
+				log.info("DIA_FECHA_DE_LA_DEUDA_3: "+DIA_FECHA_DE_LA_DEUDA_3);
+				log.info("MES_FECHA_DE_LA_DEUDA_3: "+MES_FECHA_DE_LA_DEUDA_3);
+				log.info("ANIO_FECHA_DE_LA_DEUDA_3: "+ANIO_FECHA_DE_LA_DEUDA_3);
+				log.info("MONTO_DE_LA_DEUDA_3: "+MONTO_DE_LA_DEUDA_3);
+				log.info("FECHA_DE_LA_DEUDA_4: "+FECHA_DE_LA_DEUDA_4);
+				log.info("DIA_FECHA_DE_LA_DEUDA_4: "+DIA_FECHA_DE_LA_DEUDA_4);
+				log.info("MES_FECHA_DE_LA_DEUDA_4: "+MES_FECHA_DE_LA_DEUDA_4);
+				log.info("ANIO_FECHA_DE_LA_DEUDA_4: "+ANIO_FECHA_DE_LA_DEUDA_4);
+				log.info("MONTO_DE_LA_DEUDA_4: "+MONTO_DE_LA_DEUDA_4);
+				log.info("FECHA_DE_LA_DEUDA_5: "+FECHA_DE_LA_DEUDA_5);
+				log.info("DIA_FECHA_DE_LA_DEUDA_5: "+DIA_FECHA_DE_LA_DEUDA_5);
+				log.info("MES_FECHA_DE_LA_DEUDA_5: "+MES_FECHA_DE_LA_DEUDA_5);
+				log.info("ANIO_FECHA_DE_LA_DEUDA_5: "+ANIO_FECHA_DE_LA_DEUDA_5);
+				log.info("MONTO_DE_LA_DEUDA_5: "+MONTO_DE_LA_DEUDA_5);
+				log.info("FECHA_DE_LA_DEUDA_6: "+FECHA_DE_LA_DEUDA_6);
+				log.info("DIA_FECHA_DE_LA_DEUDA_6: "+DIA_FECHA_DE_LA_DEUDA_6);
+				log.info("MES_FECHA_DE_LA_DEUDA_6: "+MES_FECHA_DE_LA_DEUDA_6);
+				log.info("ANIO_FECHA_DE_LA_DEUDA_6: "+ANIO_FECHA_DE_LA_DEUDA_6);
+				log.info("MONTO_DE_LA_DEUDA_6: "+MONTO_DE_LA_DEUDA_6);
+				log.info("MONTO_TOTAL_PENDIENTE: "+MONTO_TOTAL_PENDIENTE);
+				log.info("NOMBRE_DEL_CLIENTE: "+NOMBRE_DEL_CLIENTE);
+				log.info("TIPO_CLIENTE: "+TIPO_CLIENTE);
+				log.info("TIPO_SERVICIO: "+TIPO_SERVICIO);
+				log.info("FECHA_VENCIMIENTO_DE_FACTURA: "+FECHA_VENCIMIENTO_DE_FACTURA);
+				log.info("DIA_FECHA_VENCIMIENTO_DE_FACTURA: "+DIA_FECHA_VENCIMIENTO_DE_FACTURA);
+				log.info("MES_FECHA_VENCIMIENTO_DE_FACTURA: "+MES_FECHA_VENCIMIENTO_DE_FACTURA);
+				log.info("ANIO_FECHA_VENCIMIENTO_DE_FACTURA: "+ANIO_FECHA_VENCIMIENTO_DE_FACTURA);
 				
-				System.out.println("MONTO_MORA_A_30_DIAS: "+MONTO_MORA_A_30_DIAS);
-				System.out.println("FECHA_DE_LA_MORA_A_30_DIAS: "+FECHA_DE_LA_MORA_A_30_DIAS);
-				System.out.println("DIA_FECHA_DE_LA_MORA_A_30_DIAS: "+DIA_FECHA_DE_LA_MORA_A_30_DIAS);
-				System.out.println("MES_FECHA_DE_LA_MORA_A_30_DIAS: "+MES_FECHA_DE_LA_MORA_A_30_DIAS);
-				System.out.println("ANIO_FECHA_DE_LA_MORA_A_30_DIAS: "+ANIO_FECHA_DE_LA_MORA_A_30_DIAS);
+				log.info("MONTO_MORA_A_30_DIAS: "+MONTO_MORA_A_30_DIAS);
+				log.info("FECHA_DE_LA_MORA_A_30_DIAS: "+FECHA_DE_LA_MORA_A_30_DIAS);
+				log.info("DIA_FECHA_DE_LA_MORA_A_30_DIAS: "+DIA_FECHA_DE_LA_MORA_A_30_DIAS);
+				log.info("MES_FECHA_DE_LA_MORA_A_30_DIAS: "+MES_FECHA_DE_LA_MORA_A_30_DIAS);
+				log.info("ANIO_FECHA_DE_LA_MORA_A_30_DIAS: "+ANIO_FECHA_DE_LA_MORA_A_30_DIAS);
 				
-				System.out.println("MONTO_MORA_A_60_DIAS: "+MONTO_MORA_A_60_DIAS);
-				System.out.println("FECHA_DE_LA_MORA_A_60_DIAS: "+FECHA_DE_LA_MORA_60_DIAS);
-				System.out.println("DIA_FECHA_DE_LA_MORA_60_DIAS: "+DIA_FECHA_DE_LA_MORA_60_DIAS);
-				System.out.println("MES_FECHA_DE_LA_MORA_60_DIAS: "+MES_FECHA_DE_LA_MORA_60_DIAS);
-				System.out.println("ANIO_FECHA_DE_LA_MORA_60_DIAS: "+ANIO_FECHA_DE_LA_MORA_60_DIAS);
+				log.info("MONTO_MORA_A_60_DIAS: "+MONTO_MORA_A_60_DIAS);
+				log.info("FECHA_DE_LA_MORA_A_60_DIAS: "+FECHA_DE_LA_MORA_60_DIAS);
+				log.info("DIA_FECHA_DE_LA_MORA_60_DIAS: "+DIA_FECHA_DE_LA_MORA_60_DIAS);
+				log.info("MES_FECHA_DE_LA_MORA_60_DIAS: "+MES_FECHA_DE_LA_MORA_60_DIAS);
+				log.info("ANIO_FECHA_DE_LA_MORA_60_DIAS: "+ANIO_FECHA_DE_LA_MORA_60_DIAS);
 				
-				System.out.println("MONTO_MORA_A_90_DIAS: "+MONTO_MORA_A_90_DIAS);
-				System.out.println("FECHA_DE_LA_MORA_90_DIAS: "+FECHA_DE_LA_MORA_90_DIAS);
-				System.out.println("DIA_FECHA_DE_LA_MORA_90_DIAS: "+DIA_FECHA_DE_LA_MORA_90_DIAS);
-				System.out.println("MES_FECHA_DE_LA_MORA_90_DIAS: "+MES_FECHA_DE_LA_MORA_90_DIAS);
-				System.out.println("ANIO_FECHA_DE_LA_MORA_90_DIAS: "+ANIO_FECHA_DE_LA_MORA_90_DIAS);
+				log.info("MONTO_MORA_A_90_DIAS: "+MONTO_MORA_A_90_DIAS);
+				log.info("FECHA_DE_LA_MORA_90_DIAS: "+FECHA_DE_LA_MORA_90_DIAS);
+				log.info("DIA_FECHA_DE_LA_MORA_90_DIAS: "+DIA_FECHA_DE_LA_MORA_90_DIAS);
+				log.info("MES_FECHA_DE_LA_MORA_90_DIAS: "+MES_FECHA_DE_LA_MORA_90_DIAS);
+				log.info("ANIO_FECHA_DE_LA_MORA_90_DIAS: "+ANIO_FECHA_DE_LA_MORA_90_DIAS);
 				
-				System.out.println("INDICADOR_DE_INFORMACION_CONVENIO: "+INDICADOR_DE_INFORMACION_CONVENIO);
-				System.out.println("NUMERO_DE_CUENTA: "+NUMERO_DE_CUENTA);
-				System.out.println("MONTO_DEL_SALDO_CONVENIO: "+MONTO_DEL_SALDO_CONVENIO);
-				System.out.println("MONTO_DEL_CONVENIO: "+MONTO_DEL_CONVENIO);
-				System.out.println("CANTIDAD_DE_GIROS: "+CANTIDAD_DE_GIROS);
-				System.out.println("MONTO_DEL_GIRO_DE_CONVENIO: "+MONTO_DEL_GIRO_DE_CONVENIO);
-				System.out.println("CANTIDAD_DE_GIROS_VENCIDOS: "+CANTIDAD_DE_GIROS_VENCIDOS);
+				log.info("INDICADOR_DE_INFORMACION_CONVENIO: "+INDICADOR_DE_INFORMACION_CONVENIO);
+				log.info("NUMERO_DE_CUENTA: "+NUMERO_DE_CUENTA);
+				log.info("MONTO_DEL_SALDO_CONVENIO: "+MONTO_DEL_SALDO_CONVENIO);
+				log.info("MONTO_DEL_CONVENIO: "+MONTO_DEL_CONVENIO);
+				log.info("CANTIDAD_DE_GIROS: "+CANTIDAD_DE_GIROS);
+				log.info("MONTO_DEL_GIRO_DE_CONVENIO: "+MONTO_DEL_GIRO_DE_CONVENIO);
+				log.info("CANTIDAD_DE_GIROS_VENCIDOS: "+CANTIDAD_DE_GIROS_VENCIDOS);
 				
-				System.out.println("FECHA_DEL_VENCIDO: "+FECHA_DEL_VENCIDO);
-				System.out.println("DIA_FECHA_DEL_VENCIDO: "+DIA_FECHA_DEL_VENCIDO);
-				System.out.println("MES_FECHA_DEL_VENCIDO: "+MES_FECHA_DEL_VENCIDO);
-				System.out.println("ANIO_FECHA_DEL_VENCIDO: "+ANIO_FECHA_DEL_VENCIDO);
-				
-				
-				System.out.println("FECHA_NOTIFICADOR: "+FECHA_NOTIFICADOR);
-				System.out.println("DIA_FECHA_NOTIFICADOR: "+DIA_FECHA_NOTIFICADOR);
-				System.out.println("MES_FECHA_NOTIFICADOR: "+MES_FECHA_NOTIFICADOR);
-				System.out.println("ANIO_FECHA_NOTIFICADOR: "+ANIO_FECHA_NOTIFICADOR);
+				log.info("FECHA_DEL_VENCIDO: "+FECHA_DEL_VENCIDO);
+				log.info("DIA_FECHA_DEL_VENCIDO: "+DIA_FECHA_DEL_VENCIDO);
+				log.info("MES_FECHA_DEL_VENCIDO: "+MES_FECHA_DEL_VENCIDO);
+				log.info("ANIO_FECHA_DEL_VENCIDO: "+ANIO_FECHA_DEL_VENCIDO);
 				
 				
-				System.out.println("FECHA_ULTIMA_FACTURA: "+FECHA_ULTIMA_FACTURA);
-				System.out.println("DIA_FECHA_ULTIMA_FACTURA: "+DIA_FECHA_ULTIMA_FACTURA);
-				System.out.println("MES_FECHA_ULTIMA_FACTURA: "+MES_FECHA_ULTIMA_FACTURA);
-				System.out.println("ANIO_FECHA_ULTIMA_FACTURA: "+ANIO_FECHA_ULTIMA_FACTURA);
+				log.info("FECHA_NOTIFICADOR: "+FECHA_NOTIFICADOR);
+				log.info("DIA_FECHA_NOTIFICADOR: "+DIA_FECHA_NOTIFICADOR);
+				log.info("MES_FECHA_NOTIFICADOR: "+MES_FECHA_NOTIFICADOR);
+				log.info("ANIO_FECHA_NOTIFICADOR: "+ANIO_FECHA_NOTIFICADOR);
 				
 				
-				System.out.println("INDICADOR_CORTE_RECONEXION: "+INDICADOR_CORTE_RECONEXION);
-				System.out.println("CANTIDAD_DE_LLAMADAS: "+CANTIDAD_DE_LLAMADAS);
-				System.out.println("CODIGO_RETORNO: "+CODIGO_RETORNO);
-				System.out.println("INDICADOR_DE_INFORMACION_LIMITE_DE_CREDITO: "+INDICADOR_DE_INFORMACION_LIMITE_DE_CREDITO);
-				System.out.println("MONTO_DEL_LIMITE_DE_CREDITO: "+MONTO_DEL_LIMITE_DE_CREDITO);
-				System.out.println("MONTO_DEL_LIMITE_DE_CREDITO_CONSUMIDO: "+MONTO_DEL_LIMITE_DE_CREDITO_CONSUMIDO);
-				System.out.println("MONTO_DEL_LIMITE_DE_CREDITO_PENDIENTE"+MONTO_DEL_LIMITE_DE_CREDITO_PENDIENTE);
+				log.info("FECHA_ULTIMA_FACTURA: "+FECHA_ULTIMA_FACTURA);
+				log.info("DIA_FECHA_ULTIMA_FACTURA: "+DIA_FECHA_ULTIMA_FACTURA);
+				log.info("MES_FECHA_ULTIMA_FACTURA: "+MES_FECHA_ULTIMA_FACTURA);
+				log.info("ANIO_FECHA_ULTIMA_FACTURA: "+ANIO_FECHA_ULTIMA_FACTURA);
+				
+				
+				log.info("INDICADOR_CORTE_RECONEXION: "+INDICADOR_CORTE_RECONEXION);
+				log.info("CANTIDAD_DE_LLAMADAS: "+CANTIDAD_DE_LLAMADAS);
+				log.info("CODIGO_RETORNO: "+CODIGO_RETORNO);
+				log.info("INDICADOR_DE_INFORMACION_LIMITE_DE_CREDITO: "+INDICADOR_DE_INFORMACION_LIMITE_DE_CREDITO);
+				log.info("MONTO_DEL_LIMITE_DE_CREDITO: "+MONTO_DEL_LIMITE_DE_CREDITO);
+				log.info("MONTO_DEL_LIMITE_DE_CREDITO_CONSUMIDO: "+MONTO_DEL_LIMITE_DE_CREDITO_CONSUMIDO);
+				log.info("MONTO_DEL_LIMITE_DE_CREDITO_PENDIENTE"+MONTO_DEL_LIMITE_DE_CREDITO_PENDIENTE);
 					
 				
 				break;
 			case 4: // Consulta Orden IVR
 //				if(request.getParameter("ID_ORDEN").equalsIgnoreCase("")){
-//					System.out.println("**********SIN NUMERO DE ORDEN**********");
-//					System.out.println("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
-//					System.out.println("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
+//					log.info("**********SIN NUMERO DE ORDEN**********");
+//					log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
+//					log.info("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
 //					consultarOrdenIVR(request.getParameter("COD"), request.getParameter("NUMDES"));
 //				}else{
-//					System.out.println("**********CON NUMERO DE ORDEN**********");
-//					System.out.println("NUMERO DE ID_ORDEN: "+request.getParameter("ID_ORDEN"));
+//					log.info("**********CON NUMERO DE ORDEN**********");
+//					log.info("NUMERO DE ID_ORDEN: "+request.getParameter("ID_ORDEN"));
 //					consultarOrdenIVR(request.getParameter("ID_ORDEN"), null, null);
 //				}
 //				
@@ -585,25 +586,25 @@ public class ConsultNumber extends BaseAgiScript {
 //				setVariable("STATUS_ORDEN_ASAP",STATUS_ORDEN_ASAP);
 //				setVariable("VALIDEZ_ORDEN",VALIDEZ_ORDEN);
 //				
-//				System.out.println("CEDULA_ASAP: "+ CEDULA_ASAP);
-//				System.out.println("CODIGO_ASAP: "+ CODIGO_ASAP);
-//				System.out.println("CODIGO_BOSS: "+ CODIGO_BOSS);
-//				System.out.println("DESCRIPCION_ASAP: "+DESCRIPCION_ASAP);
-//				System.out.println("DESCRIPCION_BOSS: "+DESCRIPCION_BOSS);
-//				System.out.println("FECHA_ORDEN: "+FECHA_ORDEN);
-//				System.out.println("DIA_FECHA_ORDEN: "+DIA_FECHA_ORDEN);
-//				System.out.println("MES_FECHA_ORDEN: "+MES_FECHA_ORDEN);
-//				System.out.println("ANIO_FECHA_ORDEN: "+ANIO_FECHA_ORDEN);
-//				System.out.println("NUMERO_TELEFONO: "+NUMERO_TELEFONO);
-//				System.out.println("ORDEN_ASAP: "+ORDEN_ASAP);
-//				System.out.println("ORDEN_BOSS: "+ORDEN_BOSS);
-//				System.out.println("STATUS_ORDEN: "+STATUS_ORDEN);
-//				System.out.println("STATUS_ORDEN_ASAP: "+STATUS_ORDEN_ASAP);
-//				System.out.println("VALIDEZ_ORDEN: "+VALIDEZ_ORDEN);
+//				log.info("CEDULA_ASAP: "+ CEDULA_ASAP);
+//				log.info("CODIGO_ASAP: "+ CODIGO_ASAP);
+//				log.info("CODIGO_BOSS: "+ CODIGO_BOSS);
+//				log.info("DESCRIPCION_ASAP: "+DESCRIPCION_ASAP);
+//				log.info("DESCRIPCION_BOSS: "+DESCRIPCION_BOSS);
+//				log.info("FECHA_ORDEN: "+FECHA_ORDEN);
+//				log.info("DIA_FECHA_ORDEN: "+DIA_FECHA_ORDEN);
+//				log.info("MES_FECHA_ORDEN: "+MES_FECHA_ORDEN);
+//				log.info("ANIO_FECHA_ORDEN: "+ANIO_FECHA_ORDEN);
+//				log.info("NUMERO_TELEFONO: "+NUMERO_TELEFONO);
+//				log.info("ORDEN_ASAP: "+ORDEN_ASAP);
+//				log.info("ORDEN_BOSS: "+ORDEN_BOSS);
+//				log.info("STATUS_ORDEN: "+STATUS_ORDEN);
+//				log.info("STATUS_ORDEN_ASAP: "+STATUS_ORDEN_ASAP);
+//				log.info("VALIDEZ_ORDEN: "+VALIDEZ_ORDEN);
 				break;
 			case 5: // Consulta Estatus de internet
-				System.out.println("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
-				System.out.println("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
+				log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
+				log.info("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
 				consultarOrdenIVR(request.getParameter("COD"), request.getParameter("NUMDES"));
 				
 				setVariable("CEDULA_ASAP", CEDULA_ASAP);
@@ -624,27 +625,27 @@ public class ConsultNumber extends BaseAgiScript {
 				setVariable("TIEMPO_MAYOR_360",TIEMPO_MAYOR_360);
 				
 				
-				System.out.println("CEDULA_ASAP: "+ CEDULA_ASAP);
-				System.out.println("CODIGO_ASAP: "+ CODIGO_ASAP);
-				System.out.println("CODIGO_BOSS: "+ CODIGO_BOSS);
-				System.out.println("DESCRIPCION_ASAP: "+DESCRIPCION_ASAP);
-				System.out.println("DESCRIPCION_BOSS: "+DESCRIPCION_BOSS);
-				System.out.println("FECHA_ORDEN: "+FECHA_ORDEN);
-				System.out.println("DIA_FECHA_ORDEN: "+DIA_FECHA_ORDEN);
-				System.out.println("MES_FECHA_ORDEN: "+MES_FECHA_ORDEN);
-				System.out.println("ANIO_FECHA_ORDEN: "+ANIO_FECHA_ORDEN);
-				System.out.println("NUMERO_TELEFONO: "+NUMERO_TELEFONO);
-				System.out.println("ORDEN_ASAP: "+ORDEN_ASAP);
-				System.out.println("ORDEN_BOSS: "+ORDEN_BOSS);
-				System.out.println("STATUS_ORDEN: "+STATUS_ORDEN);
-				System.out.println("STATUS_ORDEN_ASAP: "+STATUS_ORDEN_ASAP);
-				System.out.println("VALIDEZ_ORDEN: "+VALIDEZ_ORDEN);
-				System.out.println("TIEMPO_MAYOR_360: "+TIEMPO_MAYOR_360);
+				log.info("CEDULA_ASAP: "+ CEDULA_ASAP);
+				log.info("CODIGO_ASAP: "+ CODIGO_ASAP);
+				log.info("CODIGO_BOSS: "+ CODIGO_BOSS);
+				log.info("DESCRIPCION_ASAP: "+DESCRIPCION_ASAP);
+				log.info("DESCRIPCION_BOSS: "+DESCRIPCION_BOSS);
+				log.info("FECHA_ORDEN: "+FECHA_ORDEN);
+				log.info("DIA_FECHA_ORDEN: "+DIA_FECHA_ORDEN);
+				log.info("MES_FECHA_ORDEN: "+MES_FECHA_ORDEN);
+				log.info("ANIO_FECHA_ORDEN: "+ANIO_FECHA_ORDEN);
+				log.info("NUMERO_TELEFONO: "+NUMERO_TELEFONO);
+				log.info("ORDEN_ASAP: "+ORDEN_ASAP);
+				log.info("ORDEN_BOSS: "+ORDEN_BOSS);
+				log.info("STATUS_ORDEN: "+STATUS_ORDEN);
+				log.info("STATUS_ORDEN_ASAP: "+STATUS_ORDEN_ASAP);
+				log.info("VALIDEZ_ORDEN: "+VALIDEZ_ORDEN);
+				log.info("TIEMPO_MAYOR_360: "+TIEMPO_MAYOR_360);
 				
 				break;
 			case 6: // SACAS
-				System.out.println("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
-				System.out.println("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
+				log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
+				log.info("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
 				obtenerHistoriaTelefonoIntegracion(request.getParameter("COD"), request.getParameter("NUMDES"), "Integracion", "_intmpsanp");
 				
 				setVariable("CODIGO_ERROR",CODIGO_ERROR);
@@ -659,19 +660,19 @@ public class ConsultNumber extends BaseAgiScript {
 				setVariable("TIEMPO_MAYOR_72",TIEMPO_MAYOR_72);
 				
 				
-				System.out.println("CODIGO_ERROR: "+CODIGO_ERROR);
-				System.out.println("ESTATUS: "+ESTATUS);
-				System.out.println("FECHA_CANCELACION: "+FECHA_CANCELACION);
-				System.out.println("FECHA_REPORTE: "+FECHA_REPORTE);
-				System.out.println("HORA_CANCELACION: "+HORA_CANCELACION);
-				System.out.println("HORA_REPORTE: "+HORA_REPORTE);
-				System.out.println("MENSAJE_ERROR: "+MENSAJE_ERROR);
-				System.out.println("NUMERO_INCIDENTE: "+NUMERO_INCIDENTE);
-				System.out.println("TIPO_SERVICIO: "+TIPO_SERVICIO);
-				System.out.println("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
+				log.info("CODIGO_ERROR: "+CODIGO_ERROR);
+				log.info("ESTATUS: "+ESTATUS);
+				log.info("FECHA_CANCELACION: "+FECHA_CANCELACION);
+				log.info("FECHA_REPORTE: "+FECHA_REPORTE);
+				log.info("HORA_CANCELACION: "+HORA_CANCELACION);
+				log.info("HORA_REPORTE: "+HORA_REPORTE);
+				log.info("MENSAJE_ERROR: "+MENSAJE_ERROR);
+				log.info("NUMERO_INCIDENTE: "+NUMERO_INCIDENTE);
+				log.info("TIPO_SERVICIO: "+TIPO_SERVICIO);
+				log.info("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
 				break;
 			case 7:// Consulta cliente BOSS
-				System.out.println("ESTE ES EL NUMERO DE CEDULA: "+request.getParameter("ID_CLIENTE"));
+				log.info("ESTE ES EL NUMERO DE CEDULA: "+request.getParameter("ID_CLIENTE"));
 				
 				consultarClienteBOSS(request.getParameter("ID_CLIENTE"));
 				
@@ -699,34 +700,34 @@ public class ConsultNumber extends BaseAgiScript {
 				
 				
 				
-				System.out.println("APELLIDO: "+APELLIDO);
-				System.out.println("ASAPDATA: "+ASAPDATA);
-				System.out.println("CATAS: "+CATAS);
-				System.out.println("CLTTYPE: "+CLTTYPE);
-				System.out.println("ERROR: "+ERROR);
-				System.out.println("FECORTE: "+FECORTE);
-				System.out.println("FECPAGO: "+FECPAGO);
-				System.out.println("LOGIN: "+LOGIN);
-				System.out.println("MARSKPLAN: "+MARSKPLAN);
-				System.out.println("MASKSTATUS: "+MASKSTATUS);
-				System.out.println("MTOPAGO: "+MTOPAGO);
-				System.out.println("N_ERROR: "+N_ERROR);
-				System.out.println("NOMBRE: "+NOMBRE);
-				System.out.println("NOMBRE_JURIDICO: "+NOMBRE_JURIDICO);
-				System.out.println("PAYMEDIA: "+PAYMEDIA);
-				System.out.println("PLAN: "+PLAN);
-				System.out.println("STATUS: "+STATUS);
-				System.out.println("STATUSREASON: "+STATUSREASON);
-				System.out.println("TIPO: "+TIPO);
-				System.out.println("TOTALBALANCE: "+TOTALBALANCE);
+				log.info("APELLIDO: "+APELLIDO);
+				log.info("ASAPDATA: "+ASAPDATA);
+				log.info("CATAS: "+CATAS);
+				log.info("CLTTYPE: "+CLTTYPE);
+				log.info("ERROR: "+ERROR);
+				log.info("FECORTE: "+FECORTE);
+				log.info("FECPAGO: "+FECPAGO);
+				log.info("LOGIN: "+LOGIN);
+				log.info("MARSKPLAN: "+MARSKPLAN);
+				log.info("MASKSTATUS: "+MASKSTATUS);
+				log.info("MTOPAGO: "+MTOPAGO);
+				log.info("N_ERROR: "+N_ERROR);
+				log.info("NOMBRE: "+NOMBRE);
+				log.info("NOMBRE_JURIDICO: "+NOMBRE_JURIDICO);
+				log.info("PAYMEDIA: "+PAYMEDIA);
+				log.info("PLAN: "+PLAN);
+				log.info("STATUS: "+STATUS);
+				log.info("STATUSREASON: "+STATUSREASON);
+				log.info("TIPO: "+TIPO);
+				log.info("TOTALBALANCE: "+TOTALBALANCE);
 				
 				break;
 			case 8: //REMEDY
 				if(request.getParameter("NUM_CEDULA") != null && !request.getParameter("NUM_CEDULA").equalsIgnoreCase("")){
-					System.out.println("NUMERO DE CEDULA: "+request.getParameter("NUM_CEDULA"));
+					log.info("NUMERO DE CEDULA: "+request.getParameter("NUM_CEDULA"));
 					consultaCasoRemedy(request.getParameter("NUM_CEDULA"), null, null);
 				}else{
-					System.out.println("NUMERO DE TELEFONO: "+request.getParameter("COD")+request.getParameter("NUMDES"));
+					log.info("NUMERO DE TELEFONO: "+request.getParameter("COD")+request.getParameter("NUMDES"));
 					consultaCasoRemedy(null, request.getParameter("COD"), request.getParameter("NUMDES"));
 				}
 				
@@ -741,19 +742,19 @@ public class ConsultNumber extends BaseAgiScript {
 				setVariable("RESULTADO",RESULTADO);
 				setVariable("TIEMPO_MAYOR_72",TIEMPO_MAYOR_72);
 				
-				System.out.println("CASO: "+CASO);
-				System.out.println("CATEGORIA: "+CATEGORIA);
-				System.out.println("CREADO: "+CREADO);
-				System.out.println("DESCRIPCION: "+DESCRIPCION);
-				System.out.println("ERROR: "+ERROR);
-				System.out.println("ESTADO: "+ESTADO);
-				System.out.println("REGISTROS: "+REGISTROS);
-				System.out.println("RESULTADO: "+RESULTADO);
-				System.out.println("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
+				log.info("CASO: "+CASO);
+				log.info("CATEGORIA: "+CATEGORIA);
+				log.info("CREADO: "+CREADO);
+				log.info("DESCRIPCION: "+DESCRIPCION);
+				log.info("ERROR: "+ERROR);
+				log.info("ESTADO: "+ESTADO);
+				log.info("REGISTROS: "+REGISTROS);
+				log.info("RESULTADO: "+RESULTADO);
+				log.info("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
 				
 				break;
 			case 9://TVSAT
-				System.out.println("NUMERO DE LA TARJETA: "+request.getParameter("NUM_TARJETA"));
+				log.info("NUMERO DE LA TARJETA: "+request.getParameter("NUM_TARJETA"));
 				tvsatConsultarCuentaGeneral(request.getParameter("NUM_TARJETA"));
 				
 				
@@ -792,55 +793,55 @@ public class ConsultNumber extends BaseAgiScript {
 				setVariable("ERROR_CODE",ERROR_CODE);
 				setVariable("ERROR_MESSAGE",ERROR_MESSAGE);
 				
-				System.out.println("SERIAL_DECODIFICADOR: "+SERIAL_DECODIFICADOR);
-				System.out.println("ESTATUS: "+ESTATUS);
-				System.out.println("FECHA_CREACION: "+FECHA_CREACION);
-				System.out.println("SERIAL_TARJETA_ACCESO: "+SERIAL_TARJETA_ACCESO);
-				System.out.println("FECHA_FIN_PROGRAMACION: "+FECHA_FIN_PROGRAMACION);
-				System.out.println("FECHA_EXPIRACION: "+FECHA_EXPIRACION);
-				System.out.println("CLIENTE_CARGO: "+CLIENTE_CARGO);
-				System.out.println("CLIENTE_CORREO_ELECTRONICO: "+CLIENTE_CORREO_ELECTRONICO);
-				System.out.println("CLIENTE_DOCUMENTO_ID: "+CLIENTE_DOCUMENTO_ID);
-				System.out.println("CLIENTE_EXTENSION_OFICINA: "+CLIENTE_EXTENSION_OFICINA);
-				System.out.println("CLIENTE_FECHA_INGRESO_EMPRESA: "+CLIENTE_FECHA_INGRESO_EMPRESA);
-				System.out.println("CLIENTE_FECHA_NACIMIENTO: "+CLIENTE_FECHA_NACIMIENTO);
-				System.out.println("CLIENTE_GENERO: "+CLIENTE_GENERO);
-				System.out.println("CLIENTE_NOMBRE_EMPRESA: "+CLIENTE_NOMBRE_EMPRESA);
-				System.out.println("CLIENTE_PRIMER_APELLIDO: "+CLIENTE_PRIMER_APELLIDO);
-				System.out.println("CLIENTE_PRIMER_NOMBRE: "+CLIENTE_PRIMER_NOMBRE);
-				System.out.println("CLIENTE_SEGUNDO_APELLIDO: "+CLIENTE_SEGUNDO_APELLIDO);
-				System.out.println("CLIENTE_SEGUNDO_NOMBRE: "+CLIENTE_SEGUNDO_NOMBRE);
-				System.out.println("CLIENTE_TELEFONO_HABITACION: "+CLIENTE_TELEFONO_HABITACION);
-				System.out.println("CLIENTE_TELEFONO_OFICINA: "+CLIENTE_TELEFONO_OFICINA);
-				System.out.println("CLIENTE_TITULO: "+CLIENTE_TITULO);
-				System.out.println("CLIENTE_TIPO_CLIENTE: "+CLIENTE_TIPO_CLIENTE);
-				System.out.println("CLIENTE_TIPO_DOCUMENTO: "+CLIENTE_TIPO_DOCUMENTO);
-				System.out.println("CODIGO_MONEDA: "+CODIGO_MONEDA);
-				System.out.println("FECHA_ACTIVACION: "+FECHA_ACTIVACION);
-				System.out.println("ID: "+ID);
-				System.out.println("NUMERO: "+NUMERO);
-				System.out.println("SALDO: "+SALDO);
-				System.out.println("PROVEEDOR_SERVICIO: "+PROVEEDOR_SERVICIO);
-				System.out.println("ESTATUS_ANTERIOR: "+ESTATUS_ANTERIOR);
-				System.out.println("LENGUAJE: "+LENGUAJE);
-				System.out.println("TECNOLOGIA: "+TECNOLOGIA);
-				System.out.println("ERROR_CODE: "+ERROR_CODE);
-				System.out.println("ERROR_MESSAGE: "+ERROR_MESSAGE);
+				log.info("SERIAL_DECODIFICADOR: "+SERIAL_DECODIFICADOR);
+				log.info("ESTATUS: "+ESTATUS);
+				log.info("FECHA_CREACION: "+FECHA_CREACION);
+				log.info("SERIAL_TARJETA_ACCESO: "+SERIAL_TARJETA_ACCESO);
+				log.info("FECHA_FIN_PROGRAMACION: "+FECHA_FIN_PROGRAMACION);
+				log.info("FECHA_EXPIRACION: "+FECHA_EXPIRACION);
+				log.info("CLIENTE_CARGO: "+CLIENTE_CARGO);
+				log.info("CLIENTE_CORREO_ELECTRONICO: "+CLIENTE_CORREO_ELECTRONICO);
+				log.info("CLIENTE_DOCUMENTO_ID: "+CLIENTE_DOCUMENTO_ID);
+				log.info("CLIENTE_EXTENSION_OFICINA: "+CLIENTE_EXTENSION_OFICINA);
+				log.info("CLIENTE_FECHA_INGRESO_EMPRESA: "+CLIENTE_FECHA_INGRESO_EMPRESA);
+				log.info("CLIENTE_FECHA_NACIMIENTO: "+CLIENTE_FECHA_NACIMIENTO);
+				log.info("CLIENTE_GENERO: "+CLIENTE_GENERO);
+				log.info("CLIENTE_NOMBRE_EMPRESA: "+CLIENTE_NOMBRE_EMPRESA);
+				log.info("CLIENTE_PRIMER_APELLIDO: "+CLIENTE_PRIMER_APELLIDO);
+				log.info("CLIENTE_PRIMER_NOMBRE: "+CLIENTE_PRIMER_NOMBRE);
+				log.info("CLIENTE_SEGUNDO_APELLIDO: "+CLIENTE_SEGUNDO_APELLIDO);
+				log.info("CLIENTE_SEGUNDO_NOMBRE: "+CLIENTE_SEGUNDO_NOMBRE);
+				log.info("CLIENTE_TELEFONO_HABITACION: "+CLIENTE_TELEFONO_HABITACION);
+				log.info("CLIENTE_TELEFONO_OFICINA: "+CLIENTE_TELEFONO_OFICINA);
+				log.info("CLIENTE_TITULO: "+CLIENTE_TITULO);
+				log.info("CLIENTE_TIPO_CLIENTE: "+CLIENTE_TIPO_CLIENTE);
+				log.info("CLIENTE_TIPO_DOCUMENTO: "+CLIENTE_TIPO_DOCUMENTO);
+				log.info("CODIGO_MONEDA: "+CODIGO_MONEDA);
+				log.info("FECHA_ACTIVACION: "+FECHA_ACTIVACION);
+				log.info("ID: "+ID);
+				log.info("NUMERO: "+NUMERO);
+				log.info("SALDO: "+SALDO);
+				log.info("PROVEEDOR_SERVICIO: "+PROVEEDOR_SERVICIO);
+				log.info("ESTATUS_ANTERIOR: "+ESTATUS_ANTERIOR);
+				log.info("LENGUAJE: "+LENGUAJE);
+				log.info("TECNOLOGIA: "+TECNOLOGIA);
+				log.info("ERROR_CODE: "+ERROR_CODE);
+				log.info("ERROR_MESSAGE: "+ERROR_MESSAGE);
 				
 				break;
 			case 10: //IPTV
-				System.out.println("NUMERO DE TELEFONO: "+request.getParameter("COD")+request.getParameter("NUMDES"));
+				log.info("NUMERO DE TELEFONO: "+request.getParameter("COD")+request.getParameter("NUMDES"));
 				
 				if(consultarIPTV(request.getParameter("COD"), request.getParameter("NUMDES"))){
-					System.out.println("SE DEVUELVE CONTRINUAR IGUAL A 1");
+					log.info("SE DEVUELVE CONTRINUAR IGUAL A 1");
 					setVariable("CONTINUAR", "1");
 				}else{
-					System.out.println("SE DEVUELVE CONTRINUAR IGUAL A 0");
+					log.info("SE DEVUELVE CONTRINUAR IGUAL A 0");
 					setVariable("CONTINUAR", "0");
 				}
 				break;
 			case 11: //OBTENER SALDO CONSULTA
-				System.out.println("NUMERO DE TELEFONO: "+request.getParameter("COD")+request.getParameter("NUMDES"));
+				log.info("NUMERO DE TELEFONO: "+request.getParameter("COD")+request.getParameter("NUMDES"));
 				
 				obtenerSaldoCuenta(request.getParameter("COD"), request.getParameter("NUMDES"));
 				
@@ -853,14 +854,14 @@ public class ConsultNumber extends BaseAgiScript {
 				setVariable("MES_FECHA_ULTIMA_FACTURACION",MES_FECHA_ULTIMA_FACTURACION);
 				setVariable("DIA_FECHA_ULTIMA_FACTURACION",DIA_FECHA_ULTIMA_FACTURACION);
 				
-				System.out.println("SALDO_ACTUAL: "+SALDO_ACTUAL);
-				System.out.println("SALDO_VENCIDO: "+SALDO_VENCIDO);
-				System.out.println("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
-				System.out.println("TELEFONO: "+TELEFONO);
-				System.out.println("FECHA_ULTIMA_FACTURACION: "+FECHA_ULTIMA_FACTURACION);
-				System.out.println("ANIO_FECHA_ULTIMA_FACTURACION: "+ANIO_FECHA_ULTIMA_FACTURACION);
-				System.out.println("MES_FECHA_ULTIMA_FACTURACION: "+MES_FECHA_ULTIMA_FACTURACION);
-				System.out.println("DIA_FECHA_ULTIMA_FACTURACION: "+DIA_FECHA_ULTIMA_FACTURACION);
+				log.info("SALDO_ACTUAL: "+SALDO_ACTUAL);
+				log.info("SALDO_VENCIDO: "+SALDO_VENCIDO);
+				log.info("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
+				log.info("TELEFONO: "+TELEFONO);
+				log.info("FECHA_ULTIMA_FACTURACION: "+FECHA_ULTIMA_FACTURACION);
+				log.info("ANIO_FECHA_ULTIMA_FACTURACION: "+ANIO_FECHA_ULTIMA_FACTURACION);
+				log.info("MES_FECHA_ULTIMA_FACTURACION: "+MES_FECHA_ULTIMA_FACTURACION);
+				log.info("DIA_FECHA_ULTIMA_FACTURACION: "+DIA_FECHA_ULTIMA_FACTURACION);
 				
 				
 				break;
@@ -898,14 +899,14 @@ public class ConsultNumber extends BaseAgiScript {
 //			e.printStackTrace();
 //			return false;
 //		}
-//		System.out.println(response.getNOMBRE_DEL_CLIENTE());
-//		System.out.println(response.getTIPO_CLIENTE());
-//		System.out.println("VENCIDO: "+response.getFECHA_DEL_VENCIDO());
-//		System.out.println("VENCIDO FACTURA: "+response.getFECHA_VENCIMIENTO_DE_FACTURA());
+//		log.info(response.getNOMBRE_DEL_CLIENTE());
+//		log.info(response.getTIPO_CLIENTE());
+//		log.info("VENCIDO: "+response.getFECHA_DEL_VENCIDO());
+//		log.info("VENCIDO FACTURA: "+response.getFECHA_VENCIMIENTO_DE_FACTURA());
 //		
 //		
 //		if (response.getINDICADOR_TELEFONO_ACTIVO().equalsIgnoreCase("S")){
-//			System.out.println("Esta Activo");
+//			log.info("Esta Activo");
 //			return true;
 //		}
 //		return false;
@@ -941,11 +942,11 @@ public class ConsultNumber extends BaseAgiScript {
 		SOCIAL = responseTarifa.getSOCIAL();
 		TELEFONO = responseTarifa.getTELEFONO().toString();
 		
-		System.out.println("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
-		System.out.println("CODIGO_RETORNO: "+CODIGO_RETORNO);
-		System.out.println("INDICADOR_SERVICIO: "+INDICADOR_SERVICIO);
-		System.out.println("SOCIAL: "+SOCIAL);
-		System.out.println("TELEFONO: "+TELEFONO);
+		log.info("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
+		log.info("CODIGO_RETORNO: "+CODIGO_RETORNO);
+		log.info("INDICADOR_SERVICIO: "+INDICADOR_SERVICIO);
+		log.info("SOCIAL: "+SOCIAL);
+		log.info("TELEFONO: "+TELEFONO);
 	}
 
 	/***
@@ -1346,92 +1347,92 @@ public class ConsultNumber extends BaseAgiScript {
 			
 			
 			
-			System.out.println("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
-			System.out.println("TELEFONO: "+TELEFONO);
-			System.out.println("INDICADOR_TELEFONO_ACTIVO: "+INDICADOR_TELEFONO_ACTIVO);
-			System.out.println("FECHA_DE_LA_DEUDA_1: "+FECHA_DE_LA_DEUDA_1);
-			System.out.println("DIA_FECHA_DE_LA_DEUDA_1: "+DIA_FECHA_DE_LA_DEUDA_1);
-			System.out.println("MES_FECHA_DE_LA_DEUDA_1: "+MES_FECHA_DE_LA_DEUDA_1);
-			System.out.println("ANIO_FECHA_DE_LA_DEUDA_1: "+ANIO_FECHA_DE_LA_DEUDA_1);
-			System.out.println("MONTO_DE_LA_DEUDA_1: "+MONTO_DE_LA_DEUDA_1);
-			System.out.println("FECHA_DE_LA_DEUDA_2: "+FECHA_DE_LA_DEUDA_2);
-			System.out.println("DIA_FECHA_DE_LA_DEUDA_2: "+DIA_FECHA_DE_LA_DEUDA_2);
-			System.out.println("MES_FECHA_DE_LA_DEUDA_2: "+MES_FECHA_DE_LA_DEUDA_2);
-			System.out.println("ANIO_FECHA_DE_LA_DEUDA_2: "+ANIO_FECHA_DE_LA_DEUDA_2);
-			System.out.println("MONTO_DE_LA_DEUDA_2: "+MONTO_DE_LA_DEUDA_2);
-			System.out.println("FECHA_DE_LA_DEUDA_3: "+FECHA_DE_LA_DEUDA_3);
-			System.out.println("DIA_FECHA_DE_LA_DEUDA_3: "+DIA_FECHA_DE_LA_DEUDA_3);
-			System.out.println("MES_FECHA_DE_LA_DEUDA_3: "+MES_FECHA_DE_LA_DEUDA_3);
-			System.out.println("ANIO_FECHA_DE_LA_DEUDA_3: "+ANIO_FECHA_DE_LA_DEUDA_3);
-			System.out.println("MONTO_DE_LA_DEUDA_3: "+MONTO_DE_LA_DEUDA_3);
-			System.out.println("FECHA_DE_LA_DEUDA_4: "+FECHA_DE_LA_DEUDA_4);
-			System.out.println("DIA_FECHA_DE_LA_DEUDA_4: "+DIA_FECHA_DE_LA_DEUDA_4);
-			System.out.println("MES_FECHA_DE_LA_DEUDA_4: "+MES_FECHA_DE_LA_DEUDA_4);
-			System.out.println("ANIO_FECHA_DE_LA_DEUDA_4: "+ANIO_FECHA_DE_LA_DEUDA_4);
-			System.out.println("MONTO_DE_LA_DEUDA_4: "+MONTO_DE_LA_DEUDA_4);
-			System.out.println("DIA_FECHA_DE_LA_DEUDA_5: "+FECHA_DE_LA_DEUDA_5);
-			System.out.println("MES_FECHA_DE_LA_DEUDA_5: "+MES_FECHA_DE_LA_DEUDA_5);
-			System.out.println("ANIO_FECHA_DE_LA_DEUDA_5: "+ANIO_FECHA_DE_LA_DEUDA_5);
-			System.out.println("MONTO_DE_LA_DEUDA_5: "+MONTO_DE_LA_DEUDA_5);
-			System.out.println("FECHA_DE_LA_DEUDA_6: "+FECHA_DE_LA_DEUDA_6);
-			System.out.println("DIA_FECHA_DE_LA_DEUDA_6: "+DIA_FECHA_DE_LA_DEUDA_6);
-			System.out.println("MES_FECHA_DE_LA_DEUDA_6: "+MES_FECHA_DE_LA_DEUDA_6);
-			System.out.println("ANIO_FECHA_DE_LA_DEUDA_6: "+ANIO_FECHA_DE_LA_DEUDA_6);
-			System.out.println("MONTO_DE_LA_DEUDA_6: "+MONTO_DE_LA_DEUDA_6);
-			System.out.println("MONTO_TOTAL_PENDIENTE: "+MONTO_TOTAL_PENDIENTE);
-			System.out.println("NOMBRE_DEL_CLIENTE: "+NOMBRE_DEL_CLIENTE);
-			System.out.println("TIPO_CLIENTE: "+TIPO_CLIENTE);
-			System.out.println("TIPO_SERVICIO: "+TIPO_SERVICIO);
-			System.out.println("FECHA_VENCIMIENTO_DE_FACTURA: "+FECHA_VENCIMIENTO_DE_FACTURA);
-			System.out.println("DIA_FECHA_VENCIMIENTO_DE_FACTURA: "+DIA_FECHA_VENCIMIENTO_DE_FACTURA);
-			System.out.println("MES_FECHA_VENCIMIENTO_DE_FACTURA: "+MES_FECHA_VENCIMIENTO_DE_FACTURA);
-			System.out.println("ANIO_FECHA_VENCIMIENTO_DE_FACTURA: "+ANIO_FECHA_VENCIMIENTO_DE_FACTURA);
+			log.info("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
+			log.info("TELEFONO: "+TELEFONO);
+			log.info("INDICADOR_TELEFONO_ACTIVO: "+INDICADOR_TELEFONO_ACTIVO);
+			log.info("FECHA_DE_LA_DEUDA_1: "+FECHA_DE_LA_DEUDA_1);
+			log.info("DIA_FECHA_DE_LA_DEUDA_1: "+DIA_FECHA_DE_LA_DEUDA_1);
+			log.info("MES_FECHA_DE_LA_DEUDA_1: "+MES_FECHA_DE_LA_DEUDA_1);
+			log.info("ANIO_FECHA_DE_LA_DEUDA_1: "+ANIO_FECHA_DE_LA_DEUDA_1);
+			log.info("MONTO_DE_LA_DEUDA_1: "+MONTO_DE_LA_DEUDA_1);
+			log.info("FECHA_DE_LA_DEUDA_2: "+FECHA_DE_LA_DEUDA_2);
+			log.info("DIA_FECHA_DE_LA_DEUDA_2: "+DIA_FECHA_DE_LA_DEUDA_2);
+			log.info("MES_FECHA_DE_LA_DEUDA_2: "+MES_FECHA_DE_LA_DEUDA_2);
+			log.info("ANIO_FECHA_DE_LA_DEUDA_2: "+ANIO_FECHA_DE_LA_DEUDA_2);
+			log.info("MONTO_DE_LA_DEUDA_2: "+MONTO_DE_LA_DEUDA_2);
+			log.info("FECHA_DE_LA_DEUDA_3: "+FECHA_DE_LA_DEUDA_3);
+			log.info("DIA_FECHA_DE_LA_DEUDA_3: "+DIA_FECHA_DE_LA_DEUDA_3);
+			log.info("MES_FECHA_DE_LA_DEUDA_3: "+MES_FECHA_DE_LA_DEUDA_3);
+			log.info("ANIO_FECHA_DE_LA_DEUDA_3: "+ANIO_FECHA_DE_LA_DEUDA_3);
+			log.info("MONTO_DE_LA_DEUDA_3: "+MONTO_DE_LA_DEUDA_3);
+			log.info("FECHA_DE_LA_DEUDA_4: "+FECHA_DE_LA_DEUDA_4);
+			log.info("DIA_FECHA_DE_LA_DEUDA_4: "+DIA_FECHA_DE_LA_DEUDA_4);
+			log.info("MES_FECHA_DE_LA_DEUDA_4: "+MES_FECHA_DE_LA_DEUDA_4);
+			log.info("ANIO_FECHA_DE_LA_DEUDA_4: "+ANIO_FECHA_DE_LA_DEUDA_4);
+			log.info("MONTO_DE_LA_DEUDA_4: "+MONTO_DE_LA_DEUDA_4);
+			log.info("DIA_FECHA_DE_LA_DEUDA_5: "+FECHA_DE_LA_DEUDA_5);
+			log.info("MES_FECHA_DE_LA_DEUDA_5: "+MES_FECHA_DE_LA_DEUDA_5);
+			log.info("ANIO_FECHA_DE_LA_DEUDA_5: "+ANIO_FECHA_DE_LA_DEUDA_5);
+			log.info("MONTO_DE_LA_DEUDA_5: "+MONTO_DE_LA_DEUDA_5);
+			log.info("FECHA_DE_LA_DEUDA_6: "+FECHA_DE_LA_DEUDA_6);
+			log.info("DIA_FECHA_DE_LA_DEUDA_6: "+DIA_FECHA_DE_LA_DEUDA_6);
+			log.info("MES_FECHA_DE_LA_DEUDA_6: "+MES_FECHA_DE_LA_DEUDA_6);
+			log.info("ANIO_FECHA_DE_LA_DEUDA_6: "+ANIO_FECHA_DE_LA_DEUDA_6);
+			log.info("MONTO_DE_LA_DEUDA_6: "+MONTO_DE_LA_DEUDA_6);
+			log.info("MONTO_TOTAL_PENDIENTE: "+MONTO_TOTAL_PENDIENTE);
+			log.info("NOMBRE_DEL_CLIENTE: "+NOMBRE_DEL_CLIENTE);
+			log.info("TIPO_CLIENTE: "+TIPO_CLIENTE);
+			log.info("TIPO_SERVICIO: "+TIPO_SERVICIO);
+			log.info("FECHA_VENCIMIENTO_DE_FACTURA: "+FECHA_VENCIMIENTO_DE_FACTURA);
+			log.info("DIA_FECHA_VENCIMIENTO_DE_FACTURA: "+DIA_FECHA_VENCIMIENTO_DE_FACTURA);
+			log.info("MES_FECHA_VENCIMIENTO_DE_FACTURA: "+MES_FECHA_VENCIMIENTO_DE_FACTURA);
+			log.info("ANIO_FECHA_VENCIMIENTO_DE_FACTURA: "+ANIO_FECHA_VENCIMIENTO_DE_FACTURA);
 			
-			System.out.println("MONTO_MORA_A_30_DIAS: "+MONTO_MORA_A_30_DIAS);
-			System.out.println("FECHA_DE_LA_MORA_A_30_DIAS: "+FECHA_DE_LA_MORA_A_30_DIAS);
-			System.out.println("DIA_FECHA_DE_LA_MORA_A_30_DIAS: "+DIA_FECHA_DE_LA_MORA_A_30_DIAS);
-			System.out.println("MES_FECHA_DE_LA_MORA_A_30_DIAS: "+MES_FECHA_DE_LA_MORA_A_30_DIAS);
-			System.out.println("ANIO_FECHA_DE_LA_MORA_A_30_DIAS: "+ANIO_FECHA_DE_LA_MORA_A_30_DIAS);
+			log.info("MONTO_MORA_A_30_DIAS: "+MONTO_MORA_A_30_DIAS);
+			log.info("FECHA_DE_LA_MORA_A_30_DIAS: "+FECHA_DE_LA_MORA_A_30_DIAS);
+			log.info("DIA_FECHA_DE_LA_MORA_A_30_DIAS: "+DIA_FECHA_DE_LA_MORA_A_30_DIAS);
+			log.info("MES_FECHA_DE_LA_MORA_A_30_DIAS: "+MES_FECHA_DE_LA_MORA_A_30_DIAS);
+			log.info("ANIO_FECHA_DE_LA_MORA_A_30_DIAS: "+ANIO_FECHA_DE_LA_MORA_A_30_DIAS);
 			
-			System.out.println("MONTO_MORA_A_60_DIAS: "+MONTO_MORA_A_60_DIAS);
-			System.out.println("FECHA_DE_LA_MORA_A_60_DIAS: "+FECHA_DE_LA_MORA_60_DIAS);
-			System.out.println("DIA_FECHA_DE_LA_MORA_60_DIAS: "+DIA_FECHA_DE_LA_MORA_60_DIAS);
-			System.out.println("MES_FECHA_DE_LA_MORA_60_DIAS: "+MES_FECHA_DE_LA_MORA_60_DIAS);
-			System.out.println("ANIO_FECHA_DE_LA_MORA_60_DIAS: "+ANIO_FECHA_DE_LA_MORA_60_DIAS);
+			log.info("MONTO_MORA_A_60_DIAS: "+MONTO_MORA_A_60_DIAS);
+			log.info("FECHA_DE_LA_MORA_A_60_DIAS: "+FECHA_DE_LA_MORA_60_DIAS);
+			log.info("DIA_FECHA_DE_LA_MORA_60_DIAS: "+DIA_FECHA_DE_LA_MORA_60_DIAS);
+			log.info("MES_FECHA_DE_LA_MORA_60_DIAS: "+MES_FECHA_DE_LA_MORA_60_DIAS);
+			log.info("ANIO_FECHA_DE_LA_MORA_60_DIAS: "+ANIO_FECHA_DE_LA_MORA_60_DIAS);
 			
-			System.out.println("MONTO_MORA_A_90_DIAS: "+MONTO_MORA_A_90_DIAS);
-			System.out.println("FECHA_DE_LA_MORA_90_DIAS: "+FECHA_DE_LA_MORA_90_DIAS);
-			System.out.println("DIA_FECHA_DE_LA_MORA_90_DIAS: "+DIA_FECHA_DE_LA_MORA_90_DIAS);
-			System.out.println("MES_FECHA_DE_LA_MORA_90_DIAS: "+MES_FECHA_DE_LA_MORA_90_DIAS);
-			System.out.println("ANIO_FECHA_DE_LA_MORA_90_DIAS: "+ANIO_FECHA_DE_LA_MORA_90_DIAS);
+			log.info("MONTO_MORA_A_90_DIAS: "+MONTO_MORA_A_90_DIAS);
+			log.info("FECHA_DE_LA_MORA_90_DIAS: "+FECHA_DE_LA_MORA_90_DIAS);
+			log.info("DIA_FECHA_DE_LA_MORA_90_DIAS: "+DIA_FECHA_DE_LA_MORA_90_DIAS);
+			log.info("MES_FECHA_DE_LA_MORA_90_DIAS: "+MES_FECHA_DE_LA_MORA_90_DIAS);
+			log.info("ANIO_FECHA_DE_LA_MORA_90_DIAS: "+ANIO_FECHA_DE_LA_MORA_90_DIAS);
 			
-			System.out.println("INDICADOR_DE_INFORMACION_CONVENIO: "+INDICADOR_DE_INFORMACION_CONVENIO);
-			System.out.println("NUMERO_DE_CUENTA: "+NUMERO_DE_CUENTA);
-			System.out.println("MONTO_DEL_SALDO_CONVENIO: "+MONTO_DEL_SALDO_CONVENIO);
-			System.out.println("MONTO_DEL_CONVENIO: "+MONTO_DEL_CONVENIO);
-			System.out.println("CANTIDAD_DE_GIROS: "+CANTIDAD_DE_GIROS);
-			System.out.println("MONTO_DEL_GIRO_DE_CONVENIO: "+MONTO_DEL_GIRO_DE_CONVENIO);
-			System.out.println("CANTIDAD_DE_GIROS_VENCIDOS: "+CANTIDAD_DE_GIROS_VENCIDOS);
+			log.info("INDICADOR_DE_INFORMACION_CONVENIO: "+INDICADOR_DE_INFORMACION_CONVENIO);
+			log.info("NUMERO_DE_CUENTA: "+NUMERO_DE_CUENTA);
+			log.info("MONTO_DEL_SALDO_CONVENIO: "+MONTO_DEL_SALDO_CONVENIO);
+			log.info("MONTO_DEL_CONVENIO: "+MONTO_DEL_CONVENIO);
+			log.info("CANTIDAD_DE_GIROS: "+CANTIDAD_DE_GIROS);
+			log.info("MONTO_DEL_GIRO_DE_CONVENIO: "+MONTO_DEL_GIRO_DE_CONVENIO);
+			log.info("CANTIDAD_DE_GIROS_VENCIDOS: "+CANTIDAD_DE_GIROS_VENCIDOS);
 			
-			System.out.println("FECHA_DEL_VENCIDO: "+FECHA_DEL_VENCIDO);
-			System.out.println("DIA_FECHA_DEL_VENCIDO: "+DIA_FECHA_DEL_VENCIDO);
-			System.out.println("MES_FECHA_DEL_VENCIDO: "+MES_FECHA_DEL_VENCIDO);
-			System.out.println("ANIO_FECHA_DEL_VENCIDO: "+ANIO_FECHA_DEL_VENCIDO);
-			
-			
-			System.out.println("FECHA_NOTIFICADOR: "+FECHA_NOTIFICADOR);
-			System.out.println("DIA_FECHA_NOTIFICADOR: "+DIA_FECHA_NOTIFICADOR);
-			System.out.println("MES_FECHA_NOTIFICADOR: "+MES_FECHA_NOTIFICADOR);
-			System.out.println("ANIO_FECHA_NOTIFICADOR: "+ANIO_FECHA_NOTIFICADOR);
+			log.info("FECHA_DEL_VENCIDO: "+FECHA_DEL_VENCIDO);
+			log.info("DIA_FECHA_DEL_VENCIDO: "+DIA_FECHA_DEL_VENCIDO);
+			log.info("MES_FECHA_DEL_VENCIDO: "+MES_FECHA_DEL_VENCIDO);
+			log.info("ANIO_FECHA_DEL_VENCIDO: "+ANIO_FECHA_DEL_VENCIDO);
 			
 			
-			System.out.println("INDICADOR_CORTE_RECONEXION: "+INDICADOR_CORTE_RECONEXION);
-			System.out.println("CANTIDAD_DE_LLAMADAS: "+CANTIDAD_DE_LLAMADAS);
-			System.out.println("CODIGO_RETORNO: "+CODIGO_RETORNO);
-			System.out.println("INDICADOR_DE_INFORMACION_LIMITE_DE_CREDITO: "+INDICADOR_DE_INFORMACION_LIMITE_DE_CREDITO);
-			System.out.println("MONTO_DEL_LIMITE_DE_CREDITO: "+MONTO_DEL_LIMITE_DE_CREDITO);
-			System.out.println("MONTO_DEL_LIMITE_DE_CREDITO_CONSUMIDO: "+MONTO_DEL_LIMITE_DE_CREDITO_CONSUMIDO);
-			System.out.println("MONTO_DEL_LIMITE_DE_CREDITO_PENDIENTE"+MONTO_DEL_LIMITE_DE_CREDITO_PENDIENTE);
+			log.info("FECHA_NOTIFICADOR: "+FECHA_NOTIFICADOR);
+			log.info("DIA_FECHA_NOTIFICADOR: "+DIA_FECHA_NOTIFICADOR);
+			log.info("MES_FECHA_NOTIFICADOR: "+MES_FECHA_NOTIFICADOR);
+			log.info("ANIO_FECHA_NOTIFICADOR: "+ANIO_FECHA_NOTIFICADOR);
+			
+			
+			log.info("INDICADOR_CORTE_RECONEXION: "+INDICADOR_CORTE_RECONEXION);
+			log.info("CANTIDAD_DE_LLAMADAS: "+CANTIDAD_DE_LLAMADAS);
+			log.info("CODIGO_RETORNO: "+CODIGO_RETORNO);
+			log.info("INDICADOR_DE_INFORMACION_LIMITE_DE_CREDITO: "+INDICADOR_DE_INFORMACION_LIMITE_DE_CREDITO);
+			log.info("MONTO_DEL_LIMITE_DE_CREDITO: "+MONTO_DEL_LIMITE_DE_CREDITO);
+			log.info("MONTO_DEL_LIMITE_DE_CREDITO_CONSUMIDO: "+MONTO_DEL_LIMITE_DE_CREDITO_CONSUMIDO);
+			log.info("MONTO_DEL_LIMITE_DE_CREDITO_PENDIENTE"+MONTO_DEL_LIMITE_DE_CREDITO_PENDIENTE);
 			
 			
 		} catch (SystemException e) {
@@ -1461,10 +1462,10 @@ public class ConsultNumber extends BaseAgiScript {
 //			AP719ConsultarOrdenIVRProxy proxyIVR = new AP719ConsultarOrdenIVRProxy();
 //			ConsultarOrdenIVRRQ requestIVR = new ConsultarOrdenIVRRQ();
 //			if (idOrden == null) {
-//				System.out.println("Sin numero de orden");
+//				log.info("Sin numero de orden");
 //				requestIVR.setNumeroTelefono(codigoDeArea + numDestino);
 //			} else {
-//				System.out.println("Con numero de orden");
+//				log.info("Con numero de orden");
 //				requestIVR.setIDOrden(idOrden);
 //			}
 //			responseIVR = proxyIVR.consultarOrdenIVR(requestIVR);
@@ -1498,21 +1499,21 @@ public class ConsultNumber extends BaseAgiScript {
 //				STATUS_ORDEN_ASAP = responseIVR.getStatus_orden_asap();
 //				VALIDEZ_ORDEN = responseIVR.getValidez_orden().toString();
 //				
-//				System.out.println("CEDULA_ASAP: "+ CEDULA_ASAP);
-//				System.out.println("CODIGO_ASAP: "+ CODIGO_ASAP);
-//				System.out.println("CODIGO_BOSS: "+ CODIGO_BOSS);
-//				System.out.println("DESCRIPCION_ASAP: "+DESCRIPCION_ASAP);
-//				System.out.println("DESCRIPCION_BOSS: "+DESCRIPCION_BOSS);
-//				System.out.println("FECHA_ORDEN: "+FECHA_ORDEN);
-//				System.out.println("DIA_FECHA_ORDEN: "+DIA_FECHA_ORDEN);
-//				System.out.println("MES_FECHA_ORDEN: "+MES_FECHA_ORDEN);
-//				System.out.println("ANIO_FECHA_ORDEN: "+ANIO_FECHA_ORDEN);
-//				System.out.println("NUMERO_TELEFONO: "+NUMERO_TELEFONO);
-//				System.out.println("ORDEN_ASAP: "+ORDEN_ASAP);
-//				System.out.println("ORDEN_BOSS: "+ORDEN_BOSS);
-//				System.out.println("STATUS_ORDEN: "+STATUS_ORDEN);
-//				System.out.println("STATUS_ORDEN_ASAP: "+STATUS_ORDEN_ASAP);
-//				System.out.println("VALIDEZ_ORDEN: "+VALIDEZ_ORDEN);
+//				log.info("CEDULA_ASAP: "+ CEDULA_ASAP);
+//				log.info("CODIGO_ASAP: "+ CODIGO_ASAP);
+//				log.info("CODIGO_BOSS: "+ CODIGO_BOSS);
+//				log.info("DESCRIPCION_ASAP: "+DESCRIPCION_ASAP);
+//				log.info("DESCRIPCION_BOSS: "+DESCRIPCION_BOSS);
+//				log.info("FECHA_ORDEN: "+FECHA_ORDEN);
+//				log.info("DIA_FECHA_ORDEN: "+DIA_FECHA_ORDEN);
+//				log.info("MES_FECHA_ORDEN: "+MES_FECHA_ORDEN);
+//				log.info("ANIO_FECHA_ORDEN: "+ANIO_FECHA_ORDEN);
+//				log.info("NUMERO_TELEFONO: "+NUMERO_TELEFONO);
+//				log.info("ORDEN_ASAP: "+ORDEN_ASAP);
+//				log.info("ORDEN_BOSS: "+ORDEN_BOSS);
+//				log.info("STATUS_ORDEN: "+STATUS_ORDEN);
+//				log.info("STATUS_ORDEN_ASAP: "+STATUS_ORDEN_ASAP);
+//				log.info("VALIDEZ_ORDEN: "+VALIDEZ_ORDEN);
 //				
 //			}
 //		} catch (Exception e) {
@@ -1558,7 +1559,7 @@ public class ConsultNumber extends BaseAgiScript {
 					int DIA_CREADO = Integer.parseInt(responseIVR.getFecha_orden().subSequence(0, 2).toString());
 					int MES_CREADO = Integer.parseInt(responseIVR.getFecha_orden().subSequence(3, 5).toString());
 					int ANIO_CREADO = Integer.parseInt(responseIVR.getFecha_orden().subSequence(6, 10).toString());
-					System.out.println( DIA_CREADO+" "+MES_CREADO+" "+ANIO_CREADO);
+					log.info( DIA_CREADO+" "+MES_CREADO+" "+ANIO_CREADO);
 					//Se crea los dos calendarios para la operacion
 					Calendar calendar_CREADO = Calendar.getInstance();
 					Calendar calendar_CREADO2 = Calendar.getInstance();
@@ -1573,31 +1574,31 @@ public class ConsultNumber extends BaseAgiScript {
 					
 					if(fechaHora < 360 ){
 						TIEMPO_MAYOR_360 = "N";
-						System.out.println("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MENOR A 360");
+						log.info("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MENOR A 360");
 					}
 					if(fechaHora > 360 ){
 						TIEMPO_MAYOR_360 = "Y";
-						System.out.println("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MAYOR A 360");
+						log.info("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MAYOR A 360");
 					}
 					
 				}
 				
 				
-				System.out.println("CEDULA_ASAP: "+ CEDULA_ASAP);
-				System.out.println("CODIGO_ASAP: "+ CODIGO_ASAP);
-				System.out.println("CODIGO_BOSS: "+ CODIGO_BOSS);
-				System.out.println("DESCRIPCION_ASAP: "+DESCRIPCION_ASAP);
-				System.out.println("DESCRIPCION_BOSS: "+DESCRIPCION_BOSS);
-				System.out.println("FECHA_ORDEN: "+FECHA_ORDEN);
-				System.out.println("DIA_FECHA_ORDEN: "+DIA_FECHA_ORDEN);
-				System.out.println("MES_FECHA_ORDEN: "+MES_FECHA_ORDEN);
-				System.out.println("ANIO_FECHA_ORDEN: "+ANIO_FECHA_ORDEN);
-				System.out.println("NUMERO_TELEFONO: "+NUMERO_TELEFONO);
-				System.out.println("ORDEN_ASAP: "+ORDEN_ASAP);
-				System.out.println("ORDEN_BOSS: "+ORDEN_BOSS);
-				System.out.println("STATUS_ORDEN: "+STATUS_ORDEN);
-				System.out.println("STATUS_ORDEN_ASAP: "+STATUS_ORDEN_ASAP);
-				System.out.println("VALIDEZ_ORDEN: "+VALIDEZ_ORDEN);
+				log.info("CEDULA_ASAP: "+ CEDULA_ASAP);
+				log.info("CODIGO_ASAP: "+ CODIGO_ASAP);
+				log.info("CODIGO_BOSS: "+ CODIGO_BOSS);
+				log.info("DESCRIPCION_ASAP: "+DESCRIPCION_ASAP);
+				log.info("DESCRIPCION_BOSS: "+DESCRIPCION_BOSS);
+				log.info("FECHA_ORDEN: "+FECHA_ORDEN);
+				log.info("DIA_FECHA_ORDEN: "+DIA_FECHA_ORDEN);
+				log.info("MES_FECHA_ORDEN: "+MES_FECHA_ORDEN);
+				log.info("ANIO_FECHA_ORDEN: "+ANIO_FECHA_ORDEN);
+				log.info("NUMERO_TELEFONO: "+NUMERO_TELEFONO);
+				log.info("ORDEN_ASAP: "+ORDEN_ASAP);
+				log.info("ORDEN_BOSS: "+ORDEN_BOSS);
+				log.info("STATUS_ORDEN: "+STATUS_ORDEN);
+				log.info("STATUS_ORDEN_ASAP: "+STATUS_ORDEN_ASAP);
+				log.info("VALIDEZ_ORDEN: "+VALIDEZ_ORDEN);
 			}
 
 		} catch (RemoteException e) {
@@ -1657,25 +1658,25 @@ public class ConsultNumber extends BaseAgiScript {
 				
 				if(fechaHora < 72 ){
 					TIEMPO_MAYOR_72 = "N";
-					System.out.println("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MENOR A 72");
+					log.info("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MENOR A 72");
 				}
 				if(fechaHora > 72 ){
 					TIEMPO_MAYOR_72 = "Y";
-					System.out.println("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MAYOR A 72");
+					log.info("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MAYOR A 72");
 				}
 				
 			}
 			
-			System.out.println("CODIGO_ERROR: "+CODIGO_ERROR);
-			System.out.println("ESTATUS: "+ESTATUS);
-			System.out.println("FECHA_CANCELACION: "+FECHA_CANCELACION);
-			System.out.println("FECHA_REPORTE: "+FECHA_REPORTE);
-			System.out.println("HORA_CANCELACION: "+HORA_CANCELACION);
-			System.out.println("HORA_REPORTE: "+HORA_REPORTE);
-			System.out.println("MENSAJE_ERROR: "+MENSAJE_ERROR);
-			System.out.println("NUMERO_INCIDENTE: "+NUMERO_INCIDENTE);
-			System.out.println("TIPO_SERVICIO: "+TIPO_SERVICIO);
-			System.out.println("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
+			log.info("CODIGO_ERROR: "+CODIGO_ERROR);
+			log.info("ESTATUS: "+ESTATUS);
+			log.info("FECHA_CANCELACION: "+FECHA_CANCELACION);
+			log.info("FECHA_REPORTE: "+FECHA_REPORTE);
+			log.info("HORA_CANCELACION: "+HORA_CANCELACION);
+			log.info("HORA_REPORTE: "+HORA_REPORTE);
+			log.info("MENSAJE_ERROR: "+MENSAJE_ERROR);
+			log.info("NUMERO_INCIDENTE: "+NUMERO_INCIDENTE);
+			log.info("TIPO_SERVICIO: "+TIPO_SERVICIO);
+			log.info("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
 			
 		} catch (ApplicationException e) {
 			e.printStackTrace();
@@ -1726,26 +1727,26 @@ public class ConsultNumber extends BaseAgiScript {
 				TOTALBALANCE = responseCliente.getTotalbalance();
 				
 				
-				System.out.println("APELLIDO: "+APELLIDO);
-				System.out.println("ASAPDATA: "+ASAPDATA);
-				System.out.println("CATAS: "+CATAS);
-				System.out.println("CLTTYPE: "+CLTTYPE);
-				System.out.println("ERROR: "+ERROR);
-				System.out.println("FECORTE: "+FECORTE);
-				System.out.println("FECPAGO: "+FECPAGO);
-				System.out.println("LOGIN: "+LOGIN);
-				System.out.println("MARSKPLAN: "+MARSKPLAN);
-				System.out.println("MASKSTATUS: "+MASKSTATUS);
-				System.out.println("MTOPAGO: "+MTOPAGO);
-				System.out.println("N_ERROR: "+N_ERROR);
-				System.out.println("NOMBRE: "+NOMBRE);
-				System.out.println("NOMBRE_JURIDICO: "+NOMBRE_JURIDICO);
-				System.out.println("PAYMEDIA: "+PAYMEDIA);
-				System.out.println("PLAN: "+PLAN);
-				System.out.println("STATUS: "+STATUS);
-				System.out.println("STATUSREASON: "+STATUSREASON);
-				System.out.println("TIPO: "+TIPO);
-				System.out.println("TOTALBALANCE: "+TOTALBALANCE);
+				log.info("APELLIDO: "+APELLIDO);
+				log.info("ASAPDATA: "+ASAPDATA);
+				log.info("CATAS: "+CATAS);
+				log.info("CLTTYPE: "+CLTTYPE);
+				log.info("ERROR: "+ERROR);
+				log.info("FECORTE: "+FECORTE);
+				log.info("FECPAGO: "+FECPAGO);
+				log.info("LOGIN: "+LOGIN);
+				log.info("MARSKPLAN: "+MARSKPLAN);
+				log.info("MASKSTATUS: "+MASKSTATUS);
+				log.info("MTOPAGO: "+MTOPAGO);
+				log.info("N_ERROR: "+N_ERROR);
+				log.info("NOMBRE: "+NOMBRE);
+				log.info("NOMBRE_JURIDICO: "+NOMBRE_JURIDICO);
+				log.info("PAYMEDIA: "+PAYMEDIA);
+				log.info("PLAN: "+PLAN);
+				log.info("STATUS: "+STATUS);
+				log.info("STATUSREASON: "+STATUSREASON);
+				log.info("TIPO: "+TIPO);
+				log.info("TOTALBALANCE: "+TOTALBALANCE);
 				
 			}
 		}catch (RemoteException e) {
@@ -1792,7 +1793,7 @@ public class ConsultNumber extends BaseAgiScript {
 				int ANIO_CREADO = Integer.parseInt(responseRemedy.getCreado().subSequence(6, 10).toString());
 				int HORA_CREADO = Integer.parseInt(responseRemedy.getCreado().subSequence(11, 13).toString());
 				int MINUTO_CREADO = Integer.parseInt(responseRemedy.getCreado().subSequence(14, 16).toString());
-				System.out.println("HOLAAA: "+DIA_CREADO+" "+MES_CREADO+" "+ANIO_CREADO+" "+HORA_CREADO+" "+MINUTO_CREADO);
+				log.info("HOLAAA: "+DIA_CREADO+" "+MES_CREADO+" "+ANIO_CREADO+" "+HORA_CREADO+" "+MINUTO_CREADO);
 				//Se crea los dos calendarios para la operacion
 				Calendar calendar_CREADO = Calendar.getInstance();
 				Calendar calendar_CREADO2 = Calendar.getInstance();
@@ -1807,24 +1808,24 @@ public class ConsultNumber extends BaseAgiScript {
 				
 				if(fechaHora < 72 ){
 					TIEMPO_MAYOR_72 = "N";
-					System.out.println("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MENOR A 72");
+					log.info("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MENOR A 72");
 				}
 				if(fechaHora > 72 ){
 					TIEMPO_MAYOR_72 = "Y";
-					System.out.println("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MAYOR A 72");
+					log.info("LAS TIEMPO ES: "+fechaHora+" MINUTOS / MAYOR A 72");
 				}
 				
 			}
 			
-			System.out.println("CASO: "+CASO);
-			System.out.println("CATEGORIA: "+CATEGORIA);
-			System.out.println("CREADO: "+CREADO);
-			System.out.println("DESCRIPCION: "+DESCRIPCION);
-			System.out.println("ERROR: "+ERROR);
-			System.out.println("ESTADO: "+ESTADO);
-			System.out.println("REGISTROS: "+REGISTROS);
-			System.out.println("RESULTADO: "+RESULTADO);
-			System.out.println("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
+			log.info("CASO: "+CASO);
+			log.info("CATEGORIA: "+CATEGORIA);
+			log.info("CREADO: "+CREADO);
+			log.info("DESCRIPCION: "+DESCRIPCION);
+			log.info("ERROR: "+ERROR);
+			log.info("ESTADO: "+ESTADO);
+			log.info("REGISTROS: "+REGISTROS);
+			log.info("RESULTADO: "+RESULTADO);
+			log.info("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
 			
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -1961,39 +1962,39 @@ public class ConsultNumber extends BaseAgiScript {
 				
 			}
 			
-			System.out.println("SERIAL_DECODIFICADOR: "+SERIAL_DECODIFICADOR);
-			System.out.println("ESTATUS: "+ESTATUS);
-			System.out.println("FECHA_CREACION: "+FECHA_CREACION);
-			System.out.println("SERIAL_TARJETA_ACCESO: "+SERIAL_TARJETA_ACCESO);
-			System.out.println("FECHA_FIN_PROGRAMACION: "+FECHA_FIN_PROGRAMACION);
-			System.out.println("FECHA_EXPIRACION: "+FECHA_EXPIRACION);
-			System.out.println("CLIENTE_CARGO: "+CLIENTE_CARGO);
-			System.out.println("CLIENTE_CORREO_ELECTRONICO: "+CLIENTE_CORREO_ELECTRONICO);
-			System.out.println("CLIENTE_DOCUMENTO_ID: "+CLIENTE_DOCUMENTO_ID);
-			System.out.println("CLIENTE_EXTENSION_OFICINA: "+CLIENTE_EXTENSION_OFICINA);
-			System.out.println("CLIENTE_FECHA_INGRESO_EMPRESA: "+CLIENTE_FECHA_INGRESO_EMPRESA);
-			System.out.println("CLIENTE_FECHA_NACIMIENTO: "+CLIENTE_FECHA_NACIMIENTO);
-			System.out.println("CLIENTE_GENERO: "+CLIENTE_GENERO);
-			System.out.println("CLIENTE_NOMBRE_EMPRESA: "+CLIENTE_NOMBRE_EMPRESA);
-			System.out.println("CLIENTE_PRIMER_APELLIDO: "+CLIENTE_PRIMER_APELLIDO);
-			System.out.println("CLIENTE_PRIMER_NOMBRE: "+CLIENTE_PRIMER_NOMBRE);
-			System.out.println("CLIENTE_SEGUNDO_APELLIDO: "+CLIENTE_SEGUNDO_APELLIDO);
-			System.out.println("CLIENTE_SEGUNDO_NOMBRE: "+CLIENTE_SEGUNDO_NOMBRE);
-			System.out.println("CLIENTE_TELEFONO_HABITACION: "+CLIENTE_TELEFONO_HABITACION);
-			System.out.println("CLIENTE_TELEFONO_OFICINA: "+CLIENTE_TELEFONO_OFICINA);
-			System.out.println("CLIENTE_TIPO_CLIENTE: "+CLIENTE_TIPO_CLIENTE);
-			System.out.println("CLIENTE_TIPO_DOCUMENTO: "+CLIENTE_TIPO_DOCUMENTO);
-			System.out.println("CODIGO_MONEDA: "+CODIGO_MONEDA);
-			System.out.println("FECHA_ACTIVACION: "+FECHA_ACTIVACION);
-			System.out.println("ID: "+ID);
-			System.out.println("NUMERO: "+NUMERO);
-			System.out.println("SALDO: "+SALDO);
-			System.out.println("PROVEEDOR_SERVICIO: "+PROVEEDOR_SERVICIO);
-			System.out.println("ESTATUS_ANTERIOR: "+ESTATUS_ANTERIOR);
-			System.out.println("LENGUAJE: "+LENGUAJE);
-			System.out.println("TECNOLOGIA: "+TECNOLOGIA);
-			System.out.println("ERROR_CODE: "+ERROR_CODE);
-			System.out.println("ERROR_MESSAGE: "+ERROR_MESSAGE);
+			log.info("SERIAL_DECODIFICADOR: "+SERIAL_DECODIFICADOR);
+			log.info("ESTATUS: "+ESTATUS);
+			log.info("FECHA_CREACION: "+FECHA_CREACION);
+			log.info("SERIAL_TARJETA_ACCESO: "+SERIAL_TARJETA_ACCESO);
+			log.info("FECHA_FIN_PROGRAMACION: "+FECHA_FIN_PROGRAMACION);
+			log.info("FECHA_EXPIRACION: "+FECHA_EXPIRACION);
+			log.info("CLIENTE_CARGO: "+CLIENTE_CARGO);
+			log.info("CLIENTE_CORREO_ELECTRONICO: "+CLIENTE_CORREO_ELECTRONICO);
+			log.info("CLIENTE_DOCUMENTO_ID: "+CLIENTE_DOCUMENTO_ID);
+			log.info("CLIENTE_EXTENSION_OFICINA: "+CLIENTE_EXTENSION_OFICINA);
+			log.info("CLIENTE_FECHA_INGRESO_EMPRESA: "+CLIENTE_FECHA_INGRESO_EMPRESA);
+			log.info("CLIENTE_FECHA_NACIMIENTO: "+CLIENTE_FECHA_NACIMIENTO);
+			log.info("CLIENTE_GENERO: "+CLIENTE_GENERO);
+			log.info("CLIENTE_NOMBRE_EMPRESA: "+CLIENTE_NOMBRE_EMPRESA);
+			log.info("CLIENTE_PRIMER_APELLIDO: "+CLIENTE_PRIMER_APELLIDO);
+			log.info("CLIENTE_PRIMER_NOMBRE: "+CLIENTE_PRIMER_NOMBRE);
+			log.info("CLIENTE_SEGUNDO_APELLIDO: "+CLIENTE_SEGUNDO_APELLIDO);
+			log.info("CLIENTE_SEGUNDO_NOMBRE: "+CLIENTE_SEGUNDO_NOMBRE);
+			log.info("CLIENTE_TELEFONO_HABITACION: "+CLIENTE_TELEFONO_HABITACION);
+			log.info("CLIENTE_TELEFONO_OFICINA: "+CLIENTE_TELEFONO_OFICINA);
+			log.info("CLIENTE_TIPO_CLIENTE: "+CLIENTE_TIPO_CLIENTE);
+			log.info("CLIENTE_TIPO_DOCUMENTO: "+CLIENTE_TIPO_DOCUMENTO);
+			log.info("CODIGO_MONEDA: "+CODIGO_MONEDA);
+			log.info("FECHA_ACTIVACION: "+FECHA_ACTIVACION);
+			log.info("ID: "+ID);
+			log.info("NUMERO: "+NUMERO);
+			log.info("SALDO: "+SALDO);
+			log.info("PROVEEDOR_SERVICIO: "+PROVEEDOR_SERVICIO);
+			log.info("ESTATUS_ANTERIOR: "+ESTATUS_ANTERIOR);
+			log.info("LENGUAJE: "+LENGUAJE);
+			log.info("TECNOLOGIA: "+TECNOLOGIA);
+			log.info("ERROR_CODE: "+ERROR_CODE);
+			log.info("ERROR_MESSAGE: "+ERROR_MESSAGE);
 
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -2053,29 +2054,29 @@ public class ConsultNumber extends BaseAgiScript {
 //		responseIPTV_Telf.getResidence();
 //		responseIPTV_Telf.getStatus();
 //		
-//		System.out.println(responseIPTV_Telf.getAvenue());
-//		System.out.println(responseIPTV_Telf.getBetweenThat());
-//		System.out.println(responseIPTV_Telf.getBetweenThis());
-//		System.out.println(responseIPTV_Telf.getCedula());
-//		System.out.println(responseIPTV_Telf.getCreateDate());
-//		System.out.println(responseIPTV_Telf.getCuentaFacturable());
-//		System.out.println(responseIPTV_Telf.getDireccion());
-//		System.out.println(responseIPTV_Telf.getErrorCode());
-//		System.out.println(responseIPTV_Telf.getErrorDescription());
-//		System.out.println(responseIPTV_Telf.getIdAccount());
-//		System.out.println(responseIPTV_Telf.getIdAccountContract());
-//		System.out.println(responseIPTV_Telf.getIdAccountIPTV());
-//		System.out.println(responseIPTV_Telf.getIdAddress());
-//		System.out.println(responseIPTV_Telf.getIdSubscriber());
-//		System.out.println(responseIPTV_Telf.getName());
-//		System.out.println(responseIPTV_Telf.getNationality());
-//		System.out.println(responseIPTV_Telf.getParishUrbanization());
-//		System.out.println(responseIPTV_Telf.getPhone());
-//		System.out.println(responseIPTV_Telf.getPlace());
-//		System.out.println(responseIPTV_Telf.getPlant());
-//		System.out.println(responseIPTV_Telf.getReference());
-//		System.out.println(responseIPTV_Telf.getResidence());
-//		System.out.println(responseIPTV_Telf.getStatus());
+//		log.info(responseIPTV_Telf.getAvenue());
+//		log.info(responseIPTV_Telf.getBetweenThat());
+//		log.info(responseIPTV_Telf.getBetweenThis());
+//		log.info(responseIPTV_Telf.getCedula());
+//		log.info(responseIPTV_Telf.getCreateDate());
+//		log.info(responseIPTV_Telf.getCuentaFacturable());
+//		log.info(responseIPTV_Telf.getDireccion());
+//		log.info(responseIPTV_Telf.getErrorCode());
+//		log.info(responseIPTV_Telf.getErrorDescription());
+//		log.info(responseIPTV_Telf.getIdAccount());
+//		log.info(responseIPTV_Telf.getIdAccountContract());
+//		log.info(responseIPTV_Telf.getIdAccountIPTV());
+//		log.info(responseIPTV_Telf.getIdAddress());
+//		log.info(responseIPTV_Telf.getIdSubscriber());
+//		log.info(responseIPTV_Telf.getName());
+//		log.info(responseIPTV_Telf.getNationality());
+//		log.info(responseIPTV_Telf.getParishUrbanization());
+//		log.info(responseIPTV_Telf.getPhone());
+//		log.info(responseIPTV_Telf.getPlace());
+//		log.info(responseIPTV_Telf.getPlant());
+//		log.info(responseIPTV_Telf.getReference());
+//		log.info(responseIPTV_Telf.getResidence());
+//		log.info(responseIPTV_Telf.getStatus());
 		
 		
 		
@@ -2088,12 +2089,12 @@ public class ConsultNumber extends BaseAgiScript {
         telefono.setPhoneNumber(Long.valueOf(numTelf));
         telefono.setBillingAccountKenan("");
         try {
-			System.out.println(port.validateCustomerIPTV("", telefono));
+			log.info(port.validateCustomerIPTV("", telefono));
 			if(port.validateCustomerIPTV("", telefono)){
-				System.out.println("EXISTE");
+				log.info("EXISTE");
 				return true;
 			}else{
-				System.out.println("NO EXISTE");
+				log.info("NO EXISTE");
 				return false;
 			}
 		} catch (ValidateCustomerIPTVFault_Exception e) {
@@ -2149,14 +2150,14 @@ public class ConsultNumber extends BaseAgiScript {
 			}
 		}
 		
-		System.out.println("SALDO_ACTUAL: "+SALDO_ACTUAL);
-		System.out.println("SALDO_VENCIDO: "+SALDO_VENCIDO);
-		System.out.println("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
-		System.out.println("TELEFONO: "+TELEFONO);
-		System.out.println("FECHA_ULTIMA_FACTURACION: "+FECHA_ULTIMA_FACTURACION);
-		System.out.println("ANIO_FECHA_ULTIMA_FACTURACION: "+ANIO_FECHA_ULTIMA_FACTURACION);
-		System.out.println("MES_FECHA_ULTIMA_FACTURACION: "+MES_FECHA_ULTIMA_FACTURACION);
-		System.out.println("DIA_FECHA_ULTIMA_FACTURACION: "+DIA_FECHA_ULTIMA_FACTURACION);
+		log.info("SALDO_ACTUAL: "+SALDO_ACTUAL);
+		log.info("SALDO_VENCIDO: "+SALDO_VENCIDO);
+		log.info("CODIGO_DE_AREA: "+CODIGO_DE_AREA);
+		log.info("TELEFONO: "+TELEFONO);
+		log.info("FECHA_ULTIMA_FACTURACION: "+FECHA_ULTIMA_FACTURACION);
+		log.info("ANIO_FECHA_ULTIMA_FACTURACION: "+ANIO_FECHA_ULTIMA_FACTURACION);
+		log.info("MES_FECHA_ULTIMA_FACTURACION: "+MES_FECHA_ULTIMA_FACTURACION);
+		log.info("DIA_FECHA_ULTIMA_FACTURACION: "+DIA_FECHA_ULTIMA_FACTURACION);
 	}
 	
 
