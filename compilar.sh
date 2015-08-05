@@ -39,4 +39,4 @@ javac -cp lib/axis.jar:lib/commons-logging-1.0.4.jar:lib/jaxrpc.jar:lib/wsdl4j-1
 echo "Compilando cantv/arquitectura/asc/contratos/exceptions"
 javac -cp lib/axis.jar:lib/commons-logging-1.0.4.jar:lib/jaxrpc.jar:lib/wsdl4j-1.5.1.jar:lib/axis-ant.jar:lib/commons-discovery-0.2.jar:lib/saaj.jar:lib/asterisk-java-1.0.0.M3.jar:. -d . src/cantv/arquitectura/asc/contratos/exceptions/*.java
 echo "Compilando clases"
-javac -cp lib/axis.jar:lib/commons-logging-1.0.4.jar:lib/jaxrpc.jar:lib/wsdl4j-1.5.1.jar:lib/axis-ant.jar:lib/commons-discovery-0.2.jar:lib/saaj.jar:lib/asterisk-java-1.0.0.M3.jar:. -d . src/clases/*.java
+javac -cp lib/log4j-1.2.17.jar:lib/apache-log4j-extras-1.2.17.jar:lib/axis.jar:lib/commons-logging-1.0.4.jar:lib/jaxrpc.jar:lib/wsdl4j-1.5.1.jar:lib/axis-ant.jar:lib/commons-discovery-0.2.jar:lib/saaj.jar:lib/asterisk-java-1.0.0.M3.jar:. -d . src/clases/*.java
