@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://picprod04.cantv.com.ve:8080/mule/services/IPTV_0037/IPTV0037ValidarClienteIPTV?wsdl" uri="wsdl/picprod04.cantv.com.ve_8080/mule/services/IPTV_0037/IPTV0037ValidarClienteIPTV.wsdl"/>
+</catalog>
