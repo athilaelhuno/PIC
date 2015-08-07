@@ -1,1 +1,1 @@
-# ZTE_PIC2
+# PIC
