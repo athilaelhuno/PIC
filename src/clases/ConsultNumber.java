@@ -2158,9 +2158,9 @@ public class ConsultNumber extends BaseAgiScript {
 		
 		consul.obtenerTipoTarifa("212","3920031");
 		consul.obtenerMovimientos("212","3920031");
-		consul.estatusDeLinea("998032175100", null, null);
-		consul.consultarOrdenIVRProxy("212","8589468");
-		consul.consultaDeInternet("12826978");
+		//consul.estatusDeLinea("998032175100", null, null);
+		//consul.consultarOrdenIVRProxy("212","8589468");
+		//consul.consultaDeInternet("12826978");
 		consul.consultarClienteBOSS("4810551");
 		consul.tvsatConsultarCuentaGeneral("8120202752537456");
 		consul.consultaCasoRemedy("12826978", null, null);
