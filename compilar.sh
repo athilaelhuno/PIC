@@ -11,13 +11,37 @@ fi
 case $ambiente  in
 
 "desarrollo" )
-	mkdir /dcantv/logs/pic/
+	if [ ! -d "/dcantv/" ];
+	then
+		echo "La carpeta dcantv de desarrollo no esta creada o eligio un ambiente erroneo!!!"
+		exit 1
+	else
+		if [ ! -d "/dcantv/logs/pic/" ];then
+			mkdir /dcantv/logs/pic/
+		fi
+	fi
 ;;
 "calidad" )
-	mkdir /tcantv/logs/pic/
+	if [ ! -d "/tcantv/" ];
+	then
+		echo "La carpeta dcantv de desarrollo no esta creada o eligio un ambiente erroneo!!!"
+		exit 1
+	else
+		if [ ! -d "/tcantv/logs/pic/" ];then
+			mkdir /tcantv/logs/pic/
+		fi
+	fi
 ;;
 "produccion" )
-	mkdir /pcantv/logs/pic/
+	if [ ! -d "/pcantv/" ];
+	then
+		echo "La carpeta dcantv de desarrollo no esta creada o eligio un ambiente erroneo!!!"
+		exit 1
+	else
+		if [ ! -d "/pcantv/logs/pic/" ];then
+			mkdir /pcantv/logs/pic/
+		fi
+	fi
 ;;
 *)
   echo "Los ambientes validos son desarrollo, calidad, produccion por favor elegir uno de los tres!!!"
