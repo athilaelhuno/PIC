@@ -1,4 +1,29 @@
 #!/bin/bash
+
+echo "Indique el ambiente en donde se va a compilar (desarrollo/calidad/produccion)?"
+read ambiente
+if ["$ambiente" == ""]; then 
+	clear
+	echo "El ambiente no puede estar vacio, intenta de nuevo!!!"
+	echo -e "\n"
+	exit 0
+fi
+case $ambiente  in
+
+"desarrollo" )
+	mkdir /dcantv/logs/pic/
+;;
+"calidad" )
+	mkdir /tcantv/logs/pic/
+;;
+"produccion" )
+	mkdir /pcantv/logs/pic/
+;;
+*)
+  echo "Los ambientes validos son desarrollo, calidad, produccion por favor elegir uno de los tres!!!"
+;;
+esac
+
 cd /var/lib/asterisk/agi-bin/ZTE-PIC
 echo "Compilando canonicoconsultarordenivr"
 javac -cp lib/axis.jar:lib/commons-logging-1.0.4.jar:lib/jaxrpc.jar:lib/wsdl4j-1.5.1.jar:lib/axis-ant.jar:lib/commons-discovery-0.2.jar:lib/saaj.jar:lib/asterisk-java-1.0.0.M3.jar:. -d . src/canonicoconsultarordenivr/*.java
