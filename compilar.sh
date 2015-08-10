@@ -2,7 +2,7 @@
 
 echo "Indique el ambiente en donde se va a compilar (desarrollo/calidad/produccion)?"
 read ambiente
-if ["$ambiente" == ""]; then 
+if [ "$ambiente" == "" ]; then 
 	clear
 	echo "El ambiente no puede estar vacio, intenta de nuevo!!!"
 	echo -e "\n"
