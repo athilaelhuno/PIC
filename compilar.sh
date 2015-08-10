@@ -6,7 +6,7 @@ if ["$ambiente" == ""]; then
 	clear
 	echo "El ambiente no puede estar vacio, intenta de nuevo!!!"
 	echo -e "\n"
-	exit 0
+	exit 1
 fi
 case $ambiente  in
 
@@ -21,7 +21,7 @@ case $ambiente  in
 ;;
 *)
   echo "Los ambientes validos son desarrollo, calidad, produccion por favor elegir uno de los tres!!!"
-  exit 0
+  exit 1
 ;;
 esac
 
