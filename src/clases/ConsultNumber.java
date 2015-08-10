@@ -922,10 +922,13 @@ public class ConsultNumber extends BaseAgiScript {
 		try {
 			responseTarifa = proxyTarifa.obtenerTipoTarifa(requestTarifa);
 		} catch (SystemException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		} catch (ApplicationException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		} catch (RemoteException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}
 		CODIGO_DE_AREA = responseTarifa.getCODIGO_DE_AREA().toString();
@@ -1428,12 +1431,16 @@ public class ConsultNumber extends BaseAgiScript {
 			
 			
 		} catch (SystemException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		} catch (ApplicationException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		} catch (NumberFormatException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		} catch (RemoteException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}
 		
@@ -1594,6 +1601,7 @@ public class ConsultNumber extends BaseAgiScript {
 			}
 
 		} catch (RemoteException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}
 		return false;
@@ -1671,10 +1679,13 @@ public class ConsultNumber extends BaseAgiScript {
 			log.info("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
 			
 		} catch (ApplicationException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		} catch (NumberFormatException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		} catch (RemoteException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -1742,6 +1753,7 @@ public class ConsultNumber extends BaseAgiScript {
 				
 			}
 		}catch (RemoteException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -1820,6 +1832,7 @@ public class ConsultNumber extends BaseAgiScript {
 			log.info("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
 			
 		} catch (RemoteException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}
 		
@@ -1989,6 +2002,7 @@ public class ConsultNumber extends BaseAgiScript {
 			log.info("ERROR_MESSAGE: "+ERROR_MESSAGE);
 
 		} catch (RemoteException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}
 		
@@ -2090,6 +2104,7 @@ public class ConsultNumber extends BaseAgiScript {
 				return false;
 			}
 		} catch (ValidateCustomerIPTVFault_Exception e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
@@ -2114,6 +2129,7 @@ public class ConsultNumber extends BaseAgiScript {
 		try {
 			response = proxy.serviciof2V5_NAP_Asc_obtenerSaldoCuenta(element);
 		} catch (RemoteException e) {
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}
 		
