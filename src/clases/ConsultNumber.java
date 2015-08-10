@@ -55,7 +55,7 @@ import canonicoconsultarordenivr.ConsultarOrdenIVRRP;
 import cantv.arquitectura.asc.contratos.exceptions.*;
 
 public class ConsultNumber extends BaseAgiScript {
-	static Logger log = Logger.getLogger("picLogger");
+	static Logger log = Logger.getLogger("picLogger22");
 	private int servicio = 0;
 
 	private boolean CONTINUAR = false;
@@ -2176,7 +2176,7 @@ public class ConsultNumber extends BaseAgiScript {
 		//consul.consultarIPTV("212", "7515026");
 		//consul.consultarOrdenIVR("251", "2685666");
 		//consul.obtenerHistoriaTelefonoIntegracion("212","3552899", "Integracion", "_intmpsanp");
-		consul.obtenerSaldoCuenta("212", "7935164");
+		//consul.obtenerSaldoCuenta("212", "7935164");
 		for (int i = 0; i < 20; i++) {
 			log.info("ESTOY LOGEANDO!!!!!!    "+i);
 			log.debug("ESTOY LOGEANDO!!!!!!    "+i);
