@@ -2182,7 +2182,7 @@ public class ConsultNumber extends BaseAgiScript {
 		//consul.consultarOrdenIVR("251", "2685666");
 		//consul.obtenerHistoriaTelefonoIntegracion("212","3552899", "Integracion", "_intmpsanp");
 		//consul.obtenerSaldoCuenta("212", "7935164");
-		consul..logear();
+		consul.logear();
 	}
 
 }
