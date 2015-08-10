@@ -1,27 +1,22 @@
 package clases;
 
+import org.apache.log4j.Logger;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
-
 import muleconsultarordenivr.AP719ConsultarOrdenIVRProxy;
 import muleconsultarordenivr.ConsultarOrdenIVRRQ;
 import obtenerMovimientosCent.*;
-
-import org.apache.log4j.Logger;
 import org.asteriskjava.fastagi.*;
-
 import response.Serviciof2v5_NAP_Asc_obtenerSaldoCuenta.jul2003.ibse.iwaysoftware.F2V5_NAP_Asc_obtenerSaldoCuenta_RP;
 import ve.com.cantv.iptv.bss.webservice.validatecustomeriptv.validatecustomeriptv.TelephoneLine;
 import ve.com.cantv.iptv.bss.webservice.validatecustomeriptv.validatecustomeriptv.ValidateCustomerIPTV;
 import ve.com.cantv.iptv.bss.webservice.validatecustomeriptv.validatecustomeriptv.ValidateCustomerIPTVFault_Exception;
 import ve.com.cantv.iptv.bss.webservice.validatecustomeriptv.validatecustomeriptv.ValidateCustomerIPTV_Service;
-
 import com.cantv.sacas.integracion.obtenerHistoriaTelefono.CwsObtenerHistoriaTelefonoIntegracionPortTypeProxy;
 import com.cantv.sacas.integracion.obtenerHistoriaTelefono.xsd.CbObtenerHistoriaTelefonoRP;
 import com.cantv.sacas.integracion.obtenerHistoriaTelefono.xsd.CbObtenerHistoriaTelefonoRQ;
-
 import consultarcliente.CU683ConsultarClienteBOSSProxy;
 import consultarcliente.ConsultarClienteRP;
 import consultarcliente.ConsultarClienteRQ;
@@ -2160,7 +2155,17 @@ public class ConsultNumber extends BaseAgiScript {
 		log.info("DIA_FECHA_ULTIMA_FACTURACION: "+DIA_FECHA_ULTIMA_FACTURACION);
 	}
 	
-
+	private void logear(){
+		for (int i = 0; i < 20; i++) {
+			log.info("ESTOY LOGEANDO!!!!!!    "+i);
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		ConsultNumber consul = new ConsultNumber();
 		
@@ -2177,15 +2182,7 @@ public class ConsultNumber extends BaseAgiScript {
 		//consul.consultarOrdenIVR("251", "2685666");
 		//consul.obtenerHistoriaTelefonoIntegracion("212","3552899", "Integracion", "_intmpsanp");
 		//consul.obtenerSaldoCuenta("212", "7935164");
-		for (int i = 0; i < 20; i++) {
-			log.info("ESTOY LOGEANDO!!!!!!    "+i);
-			log.debug("ESTOY LOGEANDO!!!!!!    "+i);
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+		consul..logear();
 	}
 
 }
