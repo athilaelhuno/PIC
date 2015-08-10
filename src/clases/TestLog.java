@@ -18,8 +18,8 @@ public class TestLog {
 	}
 	
 	public static void main(String[] args) {
-		TestLog test = new TestLog();
-		test.logear();
+//		TestLog test = new TestLog();
+//		test.logear();
 			
 	}
 
