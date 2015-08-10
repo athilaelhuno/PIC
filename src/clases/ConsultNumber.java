@@ -49,7 +49,7 @@ import org.apache.log4j.Logger;
 //import canonicoconsultarordenivr.ConsultarOrdenIVRRP;
 //import cantv.arquitectura.asc.contratos.exceptions.*;
 
-public class ConsultNumber extends BaseAgiScript {
+public class ConsultNumber {
 	static Logger log = Logger.getLogger("debugLogger");
 	private int servicio = 0;
 
