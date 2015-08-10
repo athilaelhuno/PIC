@@ -320,9 +320,6 @@ public class ConsultNumber extends BaseAgiScript {
 	 */
 	
 	
-	public ConsultNumber() {
-
-	}
 
 	@Override
 	public void service(AgiRequest request, AgiChannel arg1) throws AgiException {
