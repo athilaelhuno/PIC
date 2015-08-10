@@ -21,6 +21,7 @@ case $ambiente  in
 ;;
 *)
   echo "Los ambientes validos son desarrollo, calidad, produccion por favor elegir uno de los tres!!!"
+  exit 0
 ;;
 esac
 
