@@ -2179,6 +2179,7 @@ public class ConsultNumber extends BaseAgiScript {
 		consul.obtenerSaldoCuenta("212", "7935164");
 		for (int i = 0; i < 20; i++) {
 			log.info("ESTOY LOGEANDO!!!!!!    "+i);
+			log.debug("ESTOY LOGEANDO!!!!!!    "+i);
 			try {
 				Thread.sleep(5000);
 			} catch (InterruptedException e) {
