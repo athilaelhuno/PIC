@@ -55,7 +55,7 @@ import canonicoconsultarordenivr.ConsultarOrdenIVRRP;
 import cantv.arquitectura.asc.contratos.exceptions.*;
 
 public class ConsultNumber extends BaseAgiScript {
-	static Logger log = Logger.getLogger("picLogger22");
+	static Logger log = Logger.getLogger("debugLogger");
 	private int servicio = 0;
 
 	private boolean CONTINUAR = false;
