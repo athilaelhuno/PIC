@@ -1813,7 +1813,7 @@ public class ConsultNumber extends BaseAgiScript {
 				
 			}
 		}catch (RemoteException e) {
-			log.info(e.printStackTrace());
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}
 	}
