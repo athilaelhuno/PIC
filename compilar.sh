@@ -18,10 +18,10 @@ case $ambiente  in
 	else
 		if [ ! -d "/dcantv/logs/pic/" ];then
 			mkdir /dcantv/logs/pic/
-			RUTA=`pwd`
-			cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
-			sed -e 's/log\ =/log\ =\ \/dcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
 		fi
+		RUTA=`pwd`
+		cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
+		sed -e 's/log\ =/log\ =\ \/dcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
 	fi
 ;;
 "calidad" )
@@ -32,10 +32,10 @@ case $ambiente  in
 	else
 		if [ ! -d "/tcantv/logs/pic/" ];then
 			mkdir /tcantv/logs/pic/
-			RUTA=`pwd`
-			cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
-			sed -e 's/log\ =/log\ =\ \/tcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
 		fi
+		RUTA=`pwd`
+		cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
+		sed -e 's/log\ =/log\ =\ \/tcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
 	fi
 ;;
 "produccion" )
@@ -46,10 +46,10 @@ case $ambiente  in
 	else
 		if [ ! -d "/pcantv/logs/pic/" ];then
 			mkdir /pcantv/logs/pic/
-			RUTA=`pwd`
-			cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
-			sed -e 's/log\ =/log\ =\ \/pcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
 		fi
+		RUTA=`pwd`
+		cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
+		sed -e 's/log\ =/log\ =\ \/pcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
 	fi
 ;;
 *)
