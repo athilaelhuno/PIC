@@ -1,8 +1,9 @@
 package clases;
 
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -1821,7 +1822,10 @@ public class ConsultNumber extends BaseAgiScript {
 				
 			}
 		}catch (Exception e) {
-			Logger.getLogger(ConsultNumber.class.getName()).log(Level.INFO, null, e);
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			sw.toString();
 			e.printStackTrace();
 		}
 	}
