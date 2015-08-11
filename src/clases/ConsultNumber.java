@@ -1813,9 +1813,8 @@ public class ConsultNumber extends BaseAgiScript {
 				
 			}
 		}catch (Exception e) {
-			log.info("HUBO UNA EXCEPCION");
-			log.info(e.getMessage());
-			//e.printStackTrace();
+			Logger.getLogger(ConsulNumber.class.getName()).log(Level.SEVERE, null, e);
+			e.printStackTrace();
 		}
 	}
 
