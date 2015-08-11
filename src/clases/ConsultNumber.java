@@ -1825,7 +1825,7 @@ public class ConsultNumber extends BaseAgiScript {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
-			sw.toString();
+			log.info(sw.toString());
 			e.printStackTrace();
 		}
 	}
