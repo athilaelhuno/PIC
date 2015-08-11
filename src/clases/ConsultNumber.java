@@ -1812,7 +1812,7 @@ public class ConsultNumber extends BaseAgiScript {
 				log.info("TOTALBALANCE: "+TOTALBALANCE);
 				
 			}
-		}catch (RemoteException e) {
+		}catch (Exception e) {
 			log.info(e.getMessage());
 			e.printStackTrace();
 		}
