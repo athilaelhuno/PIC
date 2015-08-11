@@ -1821,7 +1821,7 @@ public class ConsultNumber extends BaseAgiScript {
 				
 			}
 		}catch (Exception e) {
-			Logger.getLogger(ConsultNumber.class.getName()).log(Level.ERROR, null, e);
+			Logger.getLogger(ConsultNumber.class.getName()).log(Level.INFO, null, e);
 			e.printStackTrace();
 		}
 	}
