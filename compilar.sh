@@ -21,7 +21,7 @@ case $ambiente  in
 		fi
 		RUTA=`pwd`
 		cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
-		sed -e 's/log\ =\/logs/log\ =\ \/dcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
+		sed -e 's/log\ =log/log\ =\ \/dcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
 		rm -f $RUTA/log4j.properties.ori
 	fi
 ;;
@@ -36,7 +36,7 @@ case $ambiente  in
 		fi
 		RUTA=`pwd`
 		cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
-		sed -e 's/log\ =/log\ =\ \/tcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
+		sed -e 's/log\ =log/log\ =\ \/tcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
 		rm -f $RUTA/log4j.properties.ori
 	fi
 ;;
@@ -51,7 +51,7 @@ case $ambiente  in
 		fi
 		RUTA=`pwd`
 		cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
-		sed -e 's/log\ =/log\ =\ \/pcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
+		sed -e 's/log\ =log/log\ =\ \/pcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
 		rm -f $RUTA/log4j.properties.ori
 	fi
 ;;
