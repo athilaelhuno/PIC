@@ -1,22 +1,30 @@
 package clases;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
+
 import muleconsultarordenivr.AP719ConsultarOrdenIVRProxy;
 import muleconsultarordenivr.ConsultarOrdenIVRRQ;
 import obtenerMovimientosCent.*;
+
 import org.asteriskjava.fastagi.*;
+
 import response.Serviciof2v5_NAP_Asc_obtenerSaldoCuenta.jul2003.ibse.iwaysoftware.F2V5_NAP_Asc_obtenerSaldoCuenta_RP;
 import ve.com.cantv.iptv.bss.webservice.validatecustomeriptv.validatecustomeriptv.TelephoneLine;
 import ve.com.cantv.iptv.bss.webservice.validatecustomeriptv.validatecustomeriptv.ValidateCustomerIPTV;
 import ve.com.cantv.iptv.bss.webservice.validatecustomeriptv.validatecustomeriptv.ValidateCustomerIPTVFault_Exception;
 import ve.com.cantv.iptv.bss.webservice.validatecustomeriptv.validatecustomeriptv.ValidateCustomerIPTV_Service;
+import clases.ConsultNumber;
+
 import com.cantv.sacas.integracion.obtenerHistoriaTelefono.CwsObtenerHistoriaTelefonoIntegracionPortTypeProxy;
 import com.cantv.sacas.integracion.obtenerHistoriaTelefono.xsd.CbObtenerHistoriaTelefonoRP;
 import com.cantv.sacas.integracion.obtenerHistoriaTelefono.xsd.CbObtenerHistoriaTelefonoRQ;
+
 import consultarcliente.CU683ConsultarClienteBOSSProxy;
 import consultarcliente.ConsultarClienteRP;
 import consultarcliente.ConsultarClienteRQ;
@@ -1813,7 +1821,7 @@ public class ConsultNumber extends BaseAgiScript {
 				
 			}
 		}catch (Exception e) {
-			Logger.getLogger(ConsulNumber.class.getName()).log(Level.SEVERE, null, e);
+			Logger.getLogger(ConsultNumber.class.getName()).log(Level.ERROR, null, e);
 			e.printStackTrace();
 		}
 	}
