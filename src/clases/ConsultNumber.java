@@ -1752,6 +1752,11 @@ public class ConsultNumber extends BaseAgiScript {
 	 * @return
 	 */
 	public void consultarClienteBOSS(String IdCliente) {
+		log.info("***********************************************************************");
+		log.info("***********************************************************************");
+		log.info("**************    Consulta cliente BOSS  CASO 7      ******************");
+		log.info("***********************************************************************");
+		log.info("***********************************************************************");
 		// numero de cedula o rif
 		// 1.- Consultar Cliente BOSS - Consulto si existe o no
 		try {
@@ -1808,7 +1813,7 @@ public class ConsultNumber extends BaseAgiScript {
 				
 			}
 		}catch (RemoteException e) {
-			log.info(e.getMessage());
+			log.info(e.printStackTrace());
 			e.printStackTrace();
 		}
 	}
@@ -2081,67 +2086,6 @@ public class ConsultNumber extends BaseAgiScript {
 	 * @return
 	 */
 	public boolean consultarIPTV(String cod_area, String numTelf){
-//		ConsultarServicioPorTlfIPTVRP responseIPTV_Telf = null;
-//		LP511ConsultarServicioIPTVProxy proxyIPTV = new LP511ConsultarServicioIPTVProxy();
-//		
-//		try {
-//			//response2 = proxyIPTV.consultarServicio(request2);
-//			responseIPTV_Telf = proxyIPTV.consultarServicioPorTlf(new ConsultarServicioPorTlfIPTVRQ(cod_area, "", numTelf));
-//		} catch (RemoteException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		responseIPTV_Telf.getAvenue();
-//		responseIPTV_Telf.getBetweenThat();
-//		responseIPTV_Telf.getBetweenThis();
-//		responseIPTV_Telf.getCedula();
-//		responseIPTV_Telf.getCreateDate();
-//		responseIPTV_Telf.getCuentaFacturable();
-//		responseIPTV_Telf.getDireccion();
-//		responseIPTV_Telf.getErrorCode();
-//		responseIPTV_Telf.getErrorDescription();
-//		responseIPTV_Telf.getIdAccount();
-//		responseIPTV_Telf.getIdAccountContract();
-//		responseIPTV_Telf.getIdAccountIPTV();
-//		responseIPTV_Telf.getIdAddress();
-//		responseIPTV_Telf.getIdSubscriber();
-//		responseIPTV_Telf.getName();
-//		responseIPTV_Telf.getNationality();
-//		responseIPTV_Telf.getParishUrbanization();
-//		responseIPTV_Telf.getPhone();
-//		responseIPTV_Telf.getPlace();
-//		responseIPTV_Telf.getPlant();
-//		responseIPTV_Telf.getReference();
-//		responseIPTV_Telf.getResidence();
-//		responseIPTV_Telf.getStatus();
-//		
-//		log.info(responseIPTV_Telf.getAvenue());
-//		log.info(responseIPTV_Telf.getBetweenThat());
-//		log.info(responseIPTV_Telf.getBetweenThis());
-//		log.info(responseIPTV_Telf.getCedula());
-//		log.info(responseIPTV_Telf.getCreateDate());
-//		log.info(responseIPTV_Telf.getCuentaFacturable());
-//		log.info(responseIPTV_Telf.getDireccion());
-//		log.info(responseIPTV_Telf.getErrorCode());
-//		log.info(responseIPTV_Telf.getErrorDescription());
-//		log.info(responseIPTV_Telf.getIdAccount());
-//		log.info(responseIPTV_Telf.getIdAccountContract());
-//		log.info(responseIPTV_Telf.getIdAccountIPTV());
-//		log.info(responseIPTV_Telf.getIdAddress());
-//		log.info(responseIPTV_Telf.getIdSubscriber());
-//		log.info(responseIPTV_Telf.getName());
-//		log.info(responseIPTV_Telf.getNationality());
-//		log.info(responseIPTV_Telf.getParishUrbanization());
-//		log.info(responseIPTV_Telf.getPhone());
-//		log.info(responseIPTV_Telf.getPlace());
-//		log.info(responseIPTV_Telf.getPlant());
-//		log.info(responseIPTV_Telf.getReference());
-//		log.info(responseIPTV_Telf.getResidence());
-//		log.info(responseIPTV_Telf.getStatus());
-		
-		
-		
-		
 		ValidateCustomerIPTV_Service service = new ValidateCustomerIPTV_Service();
 	    ValidateCustomerIPTV port = service.getValidateCustomerIPTVSOAP();
 	        
