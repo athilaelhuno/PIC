@@ -336,6 +336,11 @@ public class ConsultNumber extends BaseAgiScript {
 			// Lama al servicio correspondiente
 			switch (servicio) {
 			case 1:// Consulta Obtener Movimientos
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************   OBTENER MOVIMIENTOS  CASO 1     **********************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 //				if (obtenerMovimietos(request.getParameter("COD"), request.getParameter("NUMDES"))) {
 //					setVariable("CONTINUAR", "1");
 //				} else {
@@ -343,6 +348,11 @@ public class ConsultNumber extends BaseAgiScript {
 //				}
 				break;
 			case 2: // Consulta Obtener Tipo Tarifa
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************            TIPO TARIFA   CASO 2   **********************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 				obtenerTipoTarifa(request.getParameter("COD"), request.getParameter("NUMDES"));
 				
 				log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
@@ -362,6 +372,11 @@ public class ConsultNumber extends BaseAgiScript {
 				log.info("TELEFONO: "+TELEFONO);
 				break;
 			case 3:// Obtener Movimientos
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************   OBTENER MOVIMIENTOS  CASO 3     **********************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 				log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
 				log.info("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
 				
@@ -550,6 +565,11 @@ public class ConsultNumber extends BaseAgiScript {
 				
 				break;
 			case 4: // Consulta Orden IVR
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************   Consulta Orden IVR  CASO 4     **********************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 //				if(request.getParameter("ID_ORDEN").equalsIgnoreCase("")){
 //					log.info("**********SIN NUMERO DE ORDEN**********");
 //					log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
@@ -595,6 +615,11 @@ public class ConsultNumber extends BaseAgiScript {
 //				log.info("VALIDEZ_ORDEN: "+VALIDEZ_ORDEN);
 				break;
 			case 5: // Consulta Estatus de internet
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("************** Consulta Estatus de internet  CASO 5  ******************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 				log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
 				log.info("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
 				consultarOrdenIVR(request.getParameter("COD"), request.getParameter("NUMDES"));
@@ -636,6 +661,11 @@ public class ConsultNumber extends BaseAgiScript {
 				
 				break;
 			case 6: // SACAS
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************       SACAS  CASO 6                    ******************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 				log.info("CODIGO DE AREA RECIBIDO: "+request.getParameter("COD"));
 				log.info("NUMERO DE TELEFONO RECIBIDO: "+request.getParameter("NUMDES"));
 				obtenerHistoriaTelefonoIntegracion(request.getParameter("COD"), request.getParameter("NUMDES"), "Integracion", "_intmpsanp");
@@ -664,6 +694,11 @@ public class ConsultNumber extends BaseAgiScript {
 				log.info("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
 				break;
 			case 7:// Consulta cliente BOSS
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************    Consulta cliente BOSS  CASO 7      ******************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 				log.info("ESTE ES EL NUMERO DE CEDULA: "+request.getParameter("ID_CLIENTE"));
 				
 				consultarClienteBOSS(request.getParameter("ID_CLIENTE"));
@@ -715,6 +750,11 @@ public class ConsultNumber extends BaseAgiScript {
 				
 				break;
 			case 8: //REMEDY
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************            REMEDY  CASO 8             ******************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 				if(request.getParameter("NUM_CEDULA") != null && !request.getParameter("NUM_CEDULA").equalsIgnoreCase("")){
 					log.info("NUMERO DE CEDULA: "+request.getParameter("NUM_CEDULA"));
 					consultaCasoRemedy(request.getParameter("NUM_CEDULA"), null, null);
@@ -746,6 +786,11 @@ public class ConsultNumber extends BaseAgiScript {
 				
 				break;
 			case 9://TVSAT
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************            TVSAT  CASO 9              ******************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 				log.info("NUMERO DE LA TARJETA: "+request.getParameter("NUM_TARJETA"));
 				tvsatConsultarCuentaGeneral(request.getParameter("NUM_TARJETA"));
 				
@@ -822,6 +867,11 @@ public class ConsultNumber extends BaseAgiScript {
 				
 				break;
 			case 10: //IPTV
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************            IPTV  CASO 10              ******************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 				log.info("NUMERO DE TELEFONO: "+request.getParameter("COD")+request.getParameter("NUMDES"));
 				
 				if(consultarIPTV(request.getParameter("COD"), request.getParameter("NUMDES"))){
@@ -833,6 +883,11 @@ public class ConsultNumber extends BaseAgiScript {
 				}
 				break;
 			case 11: //OBTENER SALDO CONSULTA
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
+				log.info("**************     OBTENER SALDO CONSULTA  CASO 11   ******************");
+				log.info("***********************************************************************");
+				log.info("***********************************************************************");
 				log.info("NUMERO DE TELEFONO: "+request.getParameter("COD")+request.getParameter("NUMDES"));
 				
 				obtenerSaldoCuenta(request.getParameter("COD"), request.getParameter("NUMDES"));
