@@ -1813,8 +1813,9 @@ public class ConsultNumber extends BaseAgiScript {
 				
 			}
 		}catch (Exception e) {
+			log.info("HUBO UNA EXCEPCION");
 			log.info(e.getMessage());
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
