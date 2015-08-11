@@ -986,13 +986,22 @@ public class ConsultNumber extends BaseAgiScript {
 		try {
 			responseTarifa = proxyTarifa.obtenerTipoTarifa(requestTarifa);
 		} catch (SystemException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		} catch (ApplicationException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		} catch (RemoteException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		}
 		CODIGO_DE_AREA = responseTarifa.getCODIGO_DE_AREA().toString();
@@ -1495,16 +1504,28 @@ public class ConsultNumber extends BaseAgiScript {
 			
 			
 		} catch (SystemException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		} catch (ApplicationException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		} catch (NumberFormatException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		} catch (RemoteException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		}
 		
@@ -1665,7 +1686,10 @@ public class ConsultNumber extends BaseAgiScript {
 			}
 
 		} catch (RemoteException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		}
 		return false;
@@ -1743,13 +1767,22 @@ public class ConsultNumber extends BaseAgiScript {
 			log.info("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
 			
 		} catch (ApplicationException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		} catch (NumberFormatException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		} catch (RemoteException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		}
 	}
@@ -1761,11 +1794,6 @@ public class ConsultNumber extends BaseAgiScript {
 	 * @return
 	 */
 	public void consultarClienteBOSS(String IdCliente) {
-		log.info("***********************************************************************");
-		log.info("***********************************************************************");
-		log.info("**************    Consulta cliente BOSS  CASO 7      ******************");
-		log.info("***********************************************************************");
-		log.info("***********************************************************************");
 		// numero de cedula o rif
 		// 1.- Consultar Cliente BOSS - Consulto si existe o no
 		try {
@@ -1821,7 +1849,7 @@ public class ConsultNumber extends BaseAgiScript {
 				log.info("TOTALBALANCE: "+TOTALBALANCE);
 				
 			}
-		}catch (Exception e) {
+		}catch (RemoteException e) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
@@ -1904,7 +1932,10 @@ public class ConsultNumber extends BaseAgiScript {
 			log.info("TIEMPO_MAYOR_72: "+TIEMPO_MAYOR_72);
 			
 		} catch (RemoteException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		}
 		
@@ -2074,7 +2105,10 @@ public class ConsultNumber extends BaseAgiScript {
 			log.info("ERROR_MESSAGE: "+ERROR_MESSAGE);
 
 		} catch (RemoteException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		}
 		
@@ -2115,7 +2149,10 @@ public class ConsultNumber extends BaseAgiScript {
 				return false;
 			}
 		} catch (ValidateCustomerIPTVFault_Exception e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 			return false;
 		}
@@ -2140,7 +2177,10 @@ public class ConsultNumber extends BaseAgiScript {
 		try {
 			response = proxy.serviciof2V5_NAP_Asc_obtenerSaldoCuenta(element);
 		} catch (RemoteException e) {
-			log.info(e.getMessage());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.info(sw.toString());
 			e.printStackTrace();
 		}
 		
