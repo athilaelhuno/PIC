@@ -2172,19 +2172,19 @@ public class ConsultNumber extends BaseAgiScript {
 	public static void main(String[] args) {
 		ConsultNumber consul = new ConsultNumber();
 		
-		consul.obtenerTipoTarifa("212","3920031");
-		consul.obtenerMovimientos("212","3920031");
-		//consul.estatusDeLinea("998032175100", null, null);
-		//consul.consultarOrdenIVRProxy("212","8589468");
-		//consul.consultaDeInternet("12826978");
-		consul.consultarClienteBOSS("4810551");
-		consul.tvsatConsultarCuentaGeneral("8120202752537456");
-		consul.consultaCasoRemedy("12826978", null, null);
-		consul.consultaCasoRemedy(null, "242", "3644401");
-		consul.consultarIPTV("212", "7515026");
-		consul.consultarOrdenIVR("251", "2685666");
-		consul.obtenerHistoriaTelefonoIntegracion("212","3552899", "Integracion", "_intmpsanp");
-		consul.obtenerSaldoCuenta("212", "7935164");
+//		consul.obtenerTipoTarifa("212","3920031");
+//		consul.obtenerMovimientos("212","3920031");
+//		consul.estatusDeLinea("998032175100", null, null);
+//		consul.consultarOrdenIVRProxy("212","8589468");
+//		consul.consultaDeInternet("12826978");
+		consul.consultarClienteBOSS("11072010");
+//		consul.tvsatConsultarCuentaGeneral("8120202752537456");
+//		consul.consultaCasoRemedy("12826978", null, null);
+//		consul.consultaCasoRemedy(null, "242", "3644401");
+//		consul.consultarIPTV("212", "7515026");
+//		consul.consultarOrdenIVR("251", "2685666");
+//		consul.obtenerHistoriaTelefonoIntegracion("212","3552899", "Integracion", "_intmpsanp");
+//		consul.obtenerSaldoCuenta("212", "7935164");
 	}
 
 }
