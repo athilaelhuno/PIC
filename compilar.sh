@@ -22,6 +22,7 @@ case $ambiente  in
 		RUTA=`pwd`
 		cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
 		sed -e 's/log\ =/log\ =\ \/dcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
+		rm -f $RUTA/log4j.properties.ori
 	fi
 ;;
 "calidad" )
@@ -36,6 +37,7 @@ case $ambiente  in
 		RUTA=`pwd`
 		cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
 		sed -e 's/log\ =/log\ =\ \/tcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
+		rm -f $RUTA/log4j.properties.ori
 	fi
 ;;
 "produccion" )
@@ -50,6 +52,7 @@ case $ambiente  in
 		RUTA=`pwd`
 		cp $RUTA/log4j.properties $RUTA/log4j.properties.ori
 		sed -e 's/log\ =/log\ =\ \/pcantv\/logs\/pic\//g' $RUTA/log4j.properties.ori > $RUTA/log4j.properties
+		rm -f $RUTA/log4j.properties.ori
 	fi
 ;;
 *)
