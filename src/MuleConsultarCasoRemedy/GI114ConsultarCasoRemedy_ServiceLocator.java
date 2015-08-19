@@ -22,7 +22,7 @@ public class GI114ConsultarCasoRemedy_ServiceLocator extends org.apache.axis.cli
     }
 
     // Use to get a proxy class for GI114ConsultarCasoRemedy
-    private java.lang.String GI114ConsultarCasoRemedy_address = "http://picpw08.cantv.com.ve:8080/mule/services/GI114ConsultarCasoRemedy";
+    private java.lang.String GI114ConsultarCasoRemedy_address = "http://picprod04.cantv.com.ve:8080/mule/services/GI114ConsultarCasoRemedy";
 
     public java.lang.String getGI114ConsultarCasoRemedyAddress() {
         return GI114ConsultarCasoRemedy_address;
